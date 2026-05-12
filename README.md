@@ -4,7 +4,8 @@ This repository contains the stateless User Modeling Agent for the AnD Hackathon
 
 ## 🚀 Features
 - **Stateless Architecture**: No database or session storage.
-- **LiteLLM + OpenRouter**: Locked to OpenRouter via LiteLLM for efficient and free model access.
+- **OpenRouter SDK**: Native integration for high-performance agentic reasoning.
+- **Multi-Model Failover**: Automatic rotation between GLM-4.5, Nemotron-3, and Gemma-4 to ensure 100% uptime.
 - **5-Step Agentic Workflow**:
   1. **Retrieve**: Context gathering from input details.
   2. **Analyze**: Style fingerprinting and taste profile extraction.
@@ -14,13 +15,17 @@ This repository contains the stateless User Modeling Agent for the AnD Hackathon
 
 ## 🛠️ Tech Stack
 - **FastAPI**: Lightweight API framework.
-- **LiteLLM**: Unified LLM interface (OpenRouter proxy).
+- **OpenRouter SDK**: Official Python SDK for model access.
 - **Pydantic**: Data validation and schemas.
 
 ## 🚦 Getting Started
 
 ### 1. Environment Setup
-Create a `.env` file with your OpenRouter API key:
+Clone the example environment and add your OpenRouter API key:
+```bash
+cp .env.example .env
+```
+Then edit `.env`:
 ```env
 OPENROUTER_API_KEY=your_key_here
 ```
@@ -54,5 +59,5 @@ curl -X POST "http://localhost:8000/api/v1/reviews/generate" \
 
 ## ⚖️ Compliance
 - **Zero External Datasets**: No third-party data used.
-- **OpenRouter Only**: Strictly uses `https://openrouter.ai/api/v1`.
+- **OpenRouter Only**: Strictly uses official OpenRouter endpoints.
 - **Zero Search**: No FAISS or vector DBs; simple reasoning-over-context only.

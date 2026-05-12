@@ -13,7 +13,13 @@ class Settings(BaseSettings):
         default="",
         description="OpenRouter API Key"
     )
-    LITELLM_MODEL_PRIMARY: str = "openrouter/deepseek/deepseek-v4-flash"
+
+    LITELLM_MODEL_PRIMARY: str = "z-ai/glm-4.5-air:free"
+    LITELLM_FALLBACK_MODELS: list[str] = [
+        "nvidia/nemotron-3-nano-30b-a3b:free",
+        "google/gemma-4-31b-it:free"
+    ]
+
     MAX_TOKENS: int = 1024
 
     NIGERIAN_MARKERS: list[str] = [

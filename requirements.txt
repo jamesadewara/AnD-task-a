@@ -1,8 +1,8 @@
 fastapi
-uvicorn[standard]
+uvicorn
 pydantic
 pydantic-settings
 httpx
-litellm
+openrouter
 loguru
 tenacity
