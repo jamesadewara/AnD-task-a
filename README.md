@@ -1,63 +1,58 @@
-# REKO AI — AI-Powered Personalized Recommendation & Review Generation Engine
+# AnD Task A: User Modeling Agent
 
-## Hackathon: DSN X BCT LLM Agent Challenge
-### Team: Agentic Engineers
+This repository contains the stateless User Modeling Agent for the AnD Hackathon. It is designed to generate authentic, culturally-relevant product reviews based on user personas and product details.
 
-## What It Does
-Reko AI is an intelligent recommendation and review engine specifically localized for the Nigerian context. It goes beyond simple collaborative filtering by using Tavily to perform deep web searches on users, feeding their digital footprints into an NLP pipeline (spaCy + LiteLLM) to extract a highly personalized "Taste Profile" and "Style Fingerprint". 
+## 🚀 Features
+- **Stateless Architecture**: No database or session storage.
+- **LiteLLM + OpenRouter**: Locked to OpenRouter via LiteLLM for efficient and free model access.
+- **5-Step Agentic Workflow**:
+  1. **Retrieve**: Context gathering from input details.
+  2. **Analyze**: Style fingerprinting and taste profile extraction.
+  3. **Reason**: Chain of Thought planning.
+  4. **Generate**: Persona-aligned review drafting.
+  5. **Reflect**: Authenticity critique and refinement.
 
-The core engine uses these models to generate hyper-personalized product reviews that sound exactly like the user wrote them, and powers a context-aware ReAct recommendation agent that suggests content based on their exact mood, time of day, location (e.g., Lagos, Abuja), and hybrid similar-user interests.
+## 🛠️ Tech Stack
+- **FastAPI**: Lightweight API framework.
+- **LiteLLM**: Unified LLM interface (OpenRouter proxy).
+- **Pydantic**: Data validation and schemas.
 
-## Architecture
-- **Auth Service** (FastAPI + PostgreSQL) — Authentication layer
-- **AI Backend** (FastAPI + MongoDB + FAISS) — Core intelligence layer
-- **Frontend** (Next.js) — User interface
+## 🚦 Getting Started
 
-## Tech Stack
-- **Tavily**: Deep Search Engine
-- **DeepSeek + Groq**: LLM Reasoning & Generation
-- **spaCy en_core_web_md + Custom EntityRuler**: Natural Language Processing
-- **Sentence Transformers + FAISS**: Embeddings & Vector Search
-- **Beanie + PyMongo**: NoSQL Database
-- **Taskiq + RabbitMQ**: Asynchronous Task Queue
-
-## Quick Start
-```bash
-git clone <repo>
-cd reko-ai-recommendation-system
-cp .env.example .env
-# Fill in API keys (Tavily, DeepSeek, Groq)
-pip install -r requirements.txt
-python -m spacy download en_core_web_md
-docker-compose up -d mongo rabbitmq
-python scripts/seed_items.py --confirm
-python scripts/build_faiss.py
-uvicorn app.main:app --reload
+### 1. Environment Setup
+Create a `.env` file with your OpenRouter API key:
+```env
+OPENROUTER_API_KEY=your_key_here
 ```
 
-## API Endpoints
-- `POST /api/v1/search/deep` — Deep search user profiles
-- `POST /api/v1/reviews/generate` — Generate personalized review (Task A)
-- `POST /api/v1/recommendations` — Get recommendations with reasoning (Task B)
-- `POST /api/v1/ads/recommend` — Business ad recommendations
-- `WS /api/v1/ws/chat/{chat_id}` — Real-time streaming chat
+### 2. Run with Docker
+```bash
+docker build -t and-task-a .
+docker run -p 8000:8000 --env-file .env and-task-a
+```
 
-## Environment Variables
-| Variable | Description |
-|---|---|
-| DATABASE_URL | MongoDB Connection string |
-| RABBITMQ_URL | RabbitMQ Connection string |
-| TAVILY_API_KEY | Tavily deep search API key |
-| DEEPSEEK_API_KEY | Primary LLM API key |
-| GROQ_API_KEY | Fallback LLM API key |
-| LITELLM_MODEL_PRIMARY | e.g. deepseek/deepseek-chat |
+### 3. API Usage
+Generate a review via POST `/api/v1/reviews/generate`:
+```bash
+curl -X POST "http://localhost:8000/api/v1/reviews/generate" \
+     -H "Content-Type: application/json" \
+     -d '{
+       "user_persona": {
+         "name": "Lagos Haggler",
+         "interests": ["street_food"],
+         "traits": ["price-conscious"],
+         "tone": "casual",
+         "nigerian_context": true
+       },
+       "product": {
+         "name": "Jollof Rice",
+         "category": "Food",
+         "description": "Party Jollof with extra spice"
+       }
+     }'
+```
 
-*(See `.env.example` for the complete list)*
-
-## Nigerian Context
-- **EntityRuler** detects: Lagos, Ikeja, Lekki, Surulere, Abuja, Ibadan, Port Harcourt
-- **Nigerian markers**: "na so", "abeg", "omo", "no wahala", "how far"
-- **Content**: Nollywood movies, Afrobeats, Jollof, Suya, Amala
-
-## License
-APACHE 2.0 LICENSE
+## ⚖️ Compliance
+- **Zero External Datasets**: No third-party data used.
+- **OpenRouter Only**: Strictly uses `https://openrouter.ai/api/v1`.
+- **Zero Search**: No FAISS or vector DBs; simple reasoning-over-context only.

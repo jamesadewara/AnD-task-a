@@ -1,109 +1,75 @@
-from typing import List, Optional, Dict
-from fastapi import APIRouter, Depends, HTTPException, status
-from pydantic import BaseModel
+from fastapi import APIRouter, HTTPException
 from loguru import logger
-
-from app.core.security import verify_token
-from app.documents.user import UserDocument
-from app.documents.review import ReviewDocument
-from app.ml.review_generator import ReviewAgent
+from app.ml.review_generator import ReviewAgent, detect_markers
 from app.ml.rating_predictor import RatingPredictor
-from app.ml.bertscore_evaluator import BERTScoreEvaluator
-from app.services.embedding_encoder import encode_text
-from app.schemas.responses import ReviewResponse, ErrorResponse
+from app.schemas.responses import ReviewResponse, ErrorResponse, StyleSnapshot, ReasoningStep
 
 router = APIRouter()
 
-class ReviewGenerateRequest(BaseModel):
-    product: Dict[str, str] # name, category, description
 
 @router.post(
-    "/generate", 
+    "/generate",
     response_model=ReviewResponse,
-    responses={400: {"model": ErrorResponse}, 404: {"model": ErrorResponse}, 422: {"model": ErrorResponse}},
-    summary="Generate personalized review",
-    description="Generates a product review in the user's voice using their style fingerprint and taste profile. It also predicts a rating and evaluates output via BERTScore."
+    responses={400: {"model": ErrorResponse}, 422: {"model": ErrorResponse}},
+    summary="Generate personalized review (Stateless)",
+    description="Stateless endpoint for hackathon judges. Takes user persona and product details, generates a review in the user's voice with visible reasoning."
 )
-async def generate_review(
-    request: Dict, # Using dict to avoid strict pydantic for the 'product' nested dict in demo
-    token_claims: dict = Depends(verify_token)
-):
-    """
-    Generates a hyper-personalized product review using the user's style fingerprint,
-    predicts a rating, and evaluates quality via BERTScore.
-    """
-    user = await UserDocument.get_or_create_from_token(token_claims)
+async def generate_review(request: ReviewGenerateRequest):
+    persona = request.user_persona
+    product = request.product
 
-    if not user.taste_profile:
-        raise HTTPException(status_code=400, detail="User model not ready. Run analysis first.")
+    # FIX 1: Validate Product Input (Prevent Hallucination)
+    if product.name.lower() in ["string", "", "product name"]:
+        # If name is a placeholder, we proceed but the agent will handle it cautiously
+        # unless description is also empty, then we reject.
+        if not product.description or product.description.lower() == "string":
+            raise HTTPException(
+                status_code=400,
+                detail="Product requires valid name or description. Received placeholder data."
+            )
 
-    product = request.get("product")
-    if not product or not product.get("name") or not product.get("category"):
-        raise HTTPException(status_code=422, detail="Product name and category are required")
+    logger.info(f"Generating review for product: {product.name}")
 
-    # 1. Generate Review Text (Agentic Workflow)
-    gen_result = await ReviewAgent().generate(str(user.id), product)
-    review_text = gen_result["review_text"]
-    agent_trace = gen_result.get("agent_trace", {})
-
-    # 2. Predict Rating
-    product_desc = f"{product['name']} {product.get('description', '')}"
-    product_emb = encode_text(product_desc)
+    agent = ReviewAgent()
+    gen_result = await agent.generate_stateless(persona.model_dump(), product.model_dump())
     
+    review_text = gen_result["review_text"]
+    reasoning_chain_data = gen_result["reasoning_chain"]
+    
+    # Convert dicts to ReasoningStep models
+    reasoning_chain = [ReasoningStep(**step) for step in reasoning_chain_data]
+
     predictor = RatingPredictor()
-    rating = predictor.predict_with_sentiment(user.interest_embeddings, product_emb, review_text)
+    product_desc = f"{product.name} {product.description}"
+    rating = predictor.predict(product_desc, review_text, persona.model_dump(), product.model_dump())
 
-    # 3. Evaluate with BERTScore
-    evaluator = BERTScoreEvaluator()
-    bert_result = evaluator.evaluate(review_text, user.raw_corpus or "")
-    f1_score = bert_result["bertscore_f1"]
+    # Confidence logic
+    confidence = 0.85
+    if not product.description or product.name.lower() == "string":
+        confidence = 0.60  # Drop confidence for placeholder/minimal data
+    elif persona.style_sample:
+        confidence = 0.92
 
-    # 4. Handle Image
-    product_image = product.get("image_url")
-
-    # 5. Save to Database
-    review_doc = ReviewDocument(
-        user_id=user.auth_user_id,
-        product_name=product["name"],
-        product_category=product["category"],
-        generated_text=review_text,
-        predicted_rating=rating,
-        confidence=f1_score,
-        image_url=product_image,
-        bertscore_f1=f1_score,
-        style_snapshot=user.style_fingerprint.model_dump()
+    # Populate Style Snapshot
+    markers = detect_markers(review_text)
+    style_snapshot = StyleSnapshot(
+        inferred_tone=persona.tone or "neutral",
+        inferred_archetype=persona.traits[0] if persona.traits else "default_nigerian_consumer",
+        applied_markers=markers,
+        adaptation_reason="No user history provided; defaulted to neutral with Nigerian context" if not persona.traits else "Adapted to user-provided traits and tone"
     )
-    await review_doc.insert()
 
-    return {
-        "review_text": review_text,
-        "predicted_rating": rating,
-        "confidence": f1_score,
-        "bertscore_f1": f1_score,
-        "image_url": product_image,
-        "style_snapshot": user.style_fingerprint.model_dump(),
-        "used_nigerian_markers": gen_result["used_nigerian_markers"],
-        "sentence_count": gen_result["sentence_count"]
-    }
+    return ReviewResponse(
+        review_text=review_text,
+        predicted_rating=rating,
+        reasoning_chain=reasoning_chain,
+        confidence=confidence,
+        style_snapshot=style_snapshot,
+        image_url=product.image_url,
+        used_nigerian_markers=markers,
+        sentence_count=gen_result.get("sentence_count", 0)
+    )
 
-@router.get("/style", summary="Get user's style fingerprint")
-async def get_user_style(
-    user_id: Optional[str] = None,
-    token_claims: dict = Depends(verify_token)
-):
-    if user_id:
-        user = await UserDocument.get(user_id)
-    else:
-        user = await UserDocument.get_or_create_from_token(token_claims)
-
-    if not user:
-        raise HTTPException(status_code=404, detail="User not found")
-        
-    return user.style_fingerprint
-
-@router.get("/history", response_model=List[ReviewDocument], summary="Get user's generated review history")
-async def get_review_history(token_claims: dict = Depends(verify_token)):
-    user = await UserDocument.get_or_create_from_token(token_claims)
-
-    reviews = await ReviewDocument.find(ReviewDocument.user_id == user.auth_user_id).to_list()
-    return reviews
+@router.get("/health")
+async def health():
+    return {"status": "ok"}
