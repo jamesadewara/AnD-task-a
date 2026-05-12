@@ -53,11 +53,16 @@ async def generate_review(request: ReviewGenerateRequest):
  
     # Populate Style Snapshot
     markers = detect_markers(review_text, persona.model_dump())
+    archetype_label = persona.archetype or "default_consumer"
+    if not markers or len(markers) <= 1:
+        adaptation_reason = f"Formal archetype '{archetype_label}' — minimal Pidgin markers for polished tone. Tone: {persona.tone or 'neutral'}."
+    else:
+        adaptation_reason = f"Injected user's signature markers: {markers}"
     style_snapshot = StyleSnapshot(
         inferred_tone=persona.tone or "neutral",
-        inferred_archetype=persona.archetype or (persona.traits[0] if persona.traits else "default"),
+        inferred_archetype=archetype_label,
         applied_markers=markers,
-        adaptation_reason="Adapted based on budget constraints and user traits" if persona.traits else "Defaulted to neutral with Nigerian context"
+        adaptation_reason=adaptation_reason
     )
 
     return ReviewResponse(

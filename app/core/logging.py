@@ -4,7 +4,7 @@ from app.core.config import settings
 
 def setup_logging():
     """
-    Centralized logging configuration for Reko AI.
+    Centralized logging configuration for AnD AI.
     Outputs to terminal (stdout) ONLY if settings.DEBUG is True.
     """
     # Remove all existing handlers

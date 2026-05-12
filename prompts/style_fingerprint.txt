@@ -1,0 +1,14 @@
+## STYLE FINGERPRINT PROMPT — AnD Task A
+## Purpose: Extract linguistic style markers from a user's text corpus
+## Used in: extract_user_markers() in review_generator.py
+
+Given the following text written by a user, identify:
+1. Their preferred Nigerian pidgin phrases (e.g. "abeg", "omo", "no be so")
+2. Their typical sentence rhythm (short/punchy vs long/narrative)
+3. Their emotional register when discussing value for money
+
+User corpus:
+{corpus}
+
+Return ONLY a comma-separated list of up to 5 phrases found IN the corpus.
+Do not invent phrases not present in the text.

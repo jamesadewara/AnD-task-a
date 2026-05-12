@@ -5,22 +5,40 @@ from loguru import logger
 
 def extract_price(description: str) -> float:
     """
-    Parses price from description text. 
-    Handles patterns like ₦24,500, N24,500, Price: 24,500 with commas.
+    Extracts price in Naira from product description.
+    Handles e.g., ₦24,500, N24,500, Price: 24,500, price: 24500, 24,500 Naira
     """
     if not description:
         return 0.0
-    # Pattern: currency symbol or "Price:" followed by optional currency and numbers/commas
-    pattern = r"(?:Price:?|₦|N)\s*(?:₦|N)?\s*([\d,]+(?:\.\d+)?)"
-    match = re.search(pattern, description, re.IGNORECASE)
-    if not match:
-        return 0.0
-    
-    price_str = match.group(1).replace(",", "")
-    try:
-        return float(price_str)
-    except ValueError:
-        return 0.0
+
+    patterns = [
+        r'[\u20a6N]\s*([\d,]+(?:\.\d+)?)',                   # ₦24,500 or N24,500
+        r'Price:?\s*[\u20a6N]?\s*([\d,]+(?:\.\d+)?)',        # Price: ₦24,500
+        r'price\s*[:=]?\s*([\u20a6N]?\s*[\d,]+(?:\.\d+)?)', # price: 24500
+        r'([\d,]+(?:\.\d+)?)\s*(?:Naira|NGN)',              # 24,500 Naira
+    ]
+
+    for pattern in patterns:
+        match = re.search(pattern, description, re.IGNORECASE)
+        if match:
+            raw = match.group(1)
+            # Strip any remaining ₦/N symbols and commas before conversion
+            price_str = raw.replace('\u20a6', '').replace(',', '').strip()
+            # Strip leading 'N' only if followed by digits (avoid stripping 'Naira' text)
+            price_str = re.sub(r'^N(?=\d)', '', price_str)
+            try:
+                val = float(price_str)
+                if val > 0:
+                    return val
+            except ValueError:
+                continue
+
+    # Last resort: find any standalone 4-6 digit number
+    match = re.search(r'\b(\d{4,6})\b', description)
+    if match:
+        return float(match.group(1))
+
+    return 0.0
 
 def archetype_base_rating(archetype: str) -> float:
     """
