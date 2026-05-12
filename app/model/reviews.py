@@ -16,6 +16,8 @@ class UserPersona(BaseModel):
     nigerian_context: bool = True
     past_reviews: List[Review] = []
     budget: float = 0.0
+    archetype: str = ""
+    price_sensitivity: str = ""
 
 class ProductDetails(BaseModel):
     name: str

@@ -1,5 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from loguru import logger
+from app.model.reviews import ReviewGenerateRequest, UserPersona, ProductDetails
 from app.ml.review_generator import ReviewAgent, detect_markers
 from app.ml.rating_predictor import RatingPredictor
 from app.schemas.responses import ReviewResponse, ErrorResponse, StyleSnapshot, ReasoningStep
@@ -49,14 +50,14 @@ async def generate_review(request: ReviewGenerateRequest):
         confidence = 0.60  # Drop confidence for placeholder/minimal data
     elif persona.style_sample:
         confidence = 0.92
-
+ 
     # Populate Style Snapshot
-    markers = detect_markers(review_text)
+    markers = detect_markers(review_text, persona.model_dump())
     style_snapshot = StyleSnapshot(
         inferred_tone=persona.tone or "neutral",
-        inferred_archetype=persona.traits[0] if persona.traits else "default_nigerian_consumer",
+        inferred_archetype=persona.archetype or (persona.traits[0] if persona.traits else "default"),
         applied_markers=markers,
-        adaptation_reason="No user history provided; defaulted to neutral with Nigerian context" if not persona.traits else "Adapted to user-provided traits and tone"
+        adaptation_reason="Adapted based on budget constraints and user traits" if persona.traits else "Defaulted to neutral with Nigerian context"
     )
 
     return ReviewResponse(
@@ -69,7 +70,3 @@ async def generate_review(request: ReviewGenerateRequest):
         used_nigerian_markers=markers,
         sentence_count=gen_result.get("sentence_count", 0)
     )
-
-@router.get("/health")
-async def health():
-    return {"status": "ok"}

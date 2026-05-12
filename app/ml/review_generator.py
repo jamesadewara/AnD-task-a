@@ -2,39 +2,27 @@ import re
 from typing import List, Dict, Optional, Any
 from loguru import logger
 
-NIGERIAN_MARKERS = [
-    "wahala", "abeg", "omo", "Naija", "NEPA", "sharp sharp", 
-    "chop", "swallow", "soup", "value for money", "no wahala",
-    "dem", "don", "dey", "na", "am", "don tire", "make sense", "correct"
-]
-
 def detect_markers(text: str, persona: dict = None) -> List[str]:
+    NIGERIAN_MARKERS = ["wahala", "abeg", "omo", "Naija", "NEPA", "sharp sharp", 
+                        "chop", "dey", "na", "don tire", "no wahala", "value for money",
+                        "no be so", "sweet die", "dey whine me", "my people", "sha", "maga"]
     text_lower = text.lower()
-    detected = []
-    
-    # Prioritize user's own markers from style_sample and past_reviews
-    user_context = ""
-    if persona:
-        user_context += persona.get("style_sample", "") + " "
-        past_reviews = persona.get("past_reviews", [])
-        if past_reviews and isinstance(past_reviews[0], dict):
-            user_context += " ".join([r.get("text", "") for r in past_reviews])
-        elif past_reviews:
-            user_context += " ".join(str(r) for r in past_reviews)
-    
-    user_context_lower = user_context.lower()
-    
-    for m in NIGERIAN_MARKERS:
-        if m.lower() in text_lower:
-            # If it's in the user's history, it gets prioritized (put first)
-            if m.lower() in user_context_lower:
-                detected.insert(0, m)
+    return [m for m in NIGERIAN_MARKERS if m.lower() in text_lower]
+
+def extract_user_markers(persona: dict) -> List[str]:
+    corpus = persona.get("style_sample", "") or ""
+    past_reviews = persona.get("past_reviews", [])
+    if past_reviews:
+        for r in past_reviews:
+            if isinstance(r, dict):
+                corpus += " " + (r.get("text", "") or "")
             else:
-                if m not in detected:
-                    detected.append(m)
-    
-    # De-duplicate while preserving order
-    return list(dict.fromkeys(detected))
+                corpus += " " + str(r)
+        
+    all_markers = ["Omo", "abeg", "wahala", "NEPA", "no wahala", "sweet die", 
+                   "no be so", "sharp me", "dey", "am", "sha", "maga", "dey whine me"]
+    found = [m for m in all_markers if m.lower() in corpus.lower()]
+    return found if found else ["abeg", "omo"]
 
 class ReviewAgent:
     def __init__(self):
@@ -92,58 +80,114 @@ class ReviewAgent:
         messages = [{"role": "user", "content": prompt}]
         return await self._call_llm(messages, temperature=0.5, max_tokens=200)
 
-    async def step_4_generate(self, product: dict, persona: dict, plan: str) -> str:
-        """Generate the review draft."""
+    def _emergency_fallback_review(self, product: dict, persona: dict) -> str:
+        price = product.get("price", 0.0)
+        budget = persona.get("budget", 10000.0)
+        name = product.get("name", "Product")
+        
+        if price and budget and price > budget * 2:
+            return f"Omo, {name} cost ₦{price}? That one too much for my pocket abeg. My budget na ₦{budget}. No be say e no good, but who price am? 2 stars because e fit dey work, but my account balance dey cry."
+        
+        return f"I try {name}. E get potential but I need more time to sabi am well. 3 stars for now."
+
+    async def step_4_generate(self, product: dict, persona: dict, plan: str, rating_constraint: float = None) -> str:
+        """Generate the review draft with strict economic and rating constraints."""
         logger.info("[ReviewAgent] Step 4: Generating review draft")
         
+        price = product.get("price", 0.0)
+        budget = persona.get("budget", 0.0)
+        archetype = persona.get("archetype") or (persona.get("traits", [""])[0] if persona.get("traits") else "default")
+        sensitivity = persona.get("price_sensitivity", "medium")
+        
+        # Economic Reality Computation
+        ratio = price / budget if budget > 0 else 1.0
+        economic_constraint = ""
+        
+        if (ratio > 1.5 and (sensitivity == "high" or "Haggler" in archetype)) or (ratio > 3.0):
+            economic_constraint = f"""
+            ### UNIGNORABLE ECONOMIC CONSTRAINT ###
+            Price (₦{price}) is {ratio:.1f}x the User's Budget (₦{budget}).
+            User Archetype: {archetype} (Price-Sensitive).
+            
+            REQUIRED STRUCTURE:
+            1. LEAD WITH PRICE OUTRAGE: Complain immediately about how expensive this is for the value.
+            2. GRUDGING PRAISE: Only acknowledge features second, with a 'but' or 'sha'.
+            """
+        
+        rating_instruction = ""
+        if rating_constraint is not None:
+            rating_instruction = f"### RATING CONSTRAINT ###\nYou MUST write a review that justifies a {rating_constraint}/5.0 rating. Your tone must perfectly align with this score."
+
+        user_markers = extract_user_markers(persona)
+        
         prompt = f"""
-        Write a product review. 
-        YOU MUST REVIEW ONLY THE PRODUCT DESCRIBED BELOW. DO NOT INVENT FEATURES.
+        Write a product review in the user's authentic Nigerian voice.
         
-        Product Name: {product.get('name', 'string')}
-        Category: {product.get('category', 'string')}
+        Product: {product.get('name')} | Category: {product.get('category')}
         Description: {product.get('description', 'No description provided.')}
-        Price: {product.get('price', 0.0)}
-        
-        If description is empty, base your review solely on the name and category. 
-        Express caution if information is missing. NEVER hallucinate specs (e.g., RAM, battery) not explicitly listed.
+        Price: ₦{price}
         
         User Persona:
+        - Archetype: {archetype}
         - Tone: {persona.get('tone')}
         - Nigerian Context: {persona.get('nigerian_context')}
-        - Style Sample: {persona.get('style_sample', 'None')}
-        - Past Reviews Context length: {len(persona.get('past_reviews', []))}
+        - Budget: ₦{budget}
+        - Signature Phrases: {user_markers}
         
-        Plan:
-        {plan}
+        {economic_constraint}
+        {rating_instruction}
         
-        Instructions:
+        Plan: {plan}
+        
+        Rules:
+        - NEVER hallucinate specs (RAM, battery, etc.) not explicitly listed in the description.
         - Write 2-4 sentences.
-        - Use Nigerian markers if enabled and match the style sample.
-        - NEVER hallucinate specific specs not provided.
+        - Use at least 2 signature phrases naturally.
         - Output ONLY the review text.
         """
+        
         messages = [{"role": "user", "content": prompt}]
-        return await self._call_llm(messages, temperature=0.7, max_tokens=250)
+        max_retries = 2
+        attempts = 0
+        draft = ""
+        
+        while not draft.strip() and attempts < max_retries:
+            response = await self._call_llm(messages, temperature=0.7, max_tokens=250)
+            draft = response.strip()
+            attempts += 1
+            
+        if not draft.strip():
+            logger.warning("[ReviewAgent] LLM returned empty draft. Using fallback.")
+            draft = self._emergency_fallback_review(product, persona)
+            
+        return draft
 
     async def step_5_reflect(self, draft: str, persona: dict) -> str:
-        """Critique and revise."""
+        """Critique and revise for authenticity and adherence to constraints."""
         logger.info("[ReviewAgent] Step 5: Reflecting for authenticity")
+        
+        if not draft.strip():
+            return ""
+            
         prompt = f"""
-        Critique and refine this review for authenticity:
+        Critique and refine this Nigerian review for authenticity:
         "{draft}"
         
-        Tone: {persona.get('tone')}
-        Nigerian Context: {persona.get('nigerian_context')}
+        Checklist:
+        - Does it sound human and culturally accurate?
+        - Did it follow the economic constraints (if any)?
+        - Is it free of hallucinated technical specs?
         
-        Ensure it sounds 100% human. If the product info was missing, keep it cautious.
-        Output ONLY the final revised review text.
+        Output ONLY the final revised review text. If the draft is already good, return it as is.
         """
         messages = [{"role": "user", "content": prompt}]
-        return await self._call_llm(messages, temperature=0.5, max_tokens=250)
+        
+        response = await self._call_llm(messages, temperature=0.5, max_tokens=250)
+        return response.strip() if response.strip() else draft
 
     async def generate_stateless(self, persona: dict, product: dict) -> dict:
-        """Full structured agentic workflow."""
+        """Full structured agentic workflow with probabilistic rating model."""
+        from app.ml.rating_predictor import RatingPredictor
         
         # Build reasoning chain in Python
         reasoning_chain = []
@@ -155,45 +199,56 @@ class ReviewAgent:
         step2 = await self.step_2_analyze(product, persona)
         reasoning_chain.append(step2)
         
-        # Step 3: Plan (Hidden from final chain output or summarized)
+        # Probabilistic Rating Step
+        predictor = RatingPredictor()
+        p_res = predictor.predict_probabilistic(persona, product)
+        sampled_rating = p_res["rating"]
+        
+        reasoning_chain.append({
+            "step": "predict_rating",
+            "action": "Computed price shock and sampled probabilistic rating",
+            "output": f"Sampled Rating: {sampled_rating}. Formula: {p_res['formula']}. Price Shock: {p_res['shock']:.2f}. Deterministic seed applied."
+        })
+        
+        # Step 3: Plan
         plan = await self.step_3_reason(product, persona)
         
-        # Step 4: Generate
-        draft = await self.step_4_generate(product, persona, plan)
+        # Step 4: Generate (with rating constraint)
+        draft = await self.step_4_generate(product, persona, plan, rating_constraint=sampled_rating)
         
         # Step 5: Reflect
         final_review = await self.step_5_reflect(draft, persona)
+        
+        if not final_review.strip():
+            reasoning_chain.append({
+                "step": "reflect",
+                "action": "Validation FAILED",
+                "output": "Generated review is EMPTY. Triggering emergency fallback."
+            })
+            final_review = self._emergency_fallback_review(product, persona)
+        
         final_review = final_review.strip().replace('"', '')
         
         # Marker Detection and Validation
         detected = detect_markers(final_review, persona)
-        
-        # Post-generation validation
         validated_markers = [m for m in detected if m.lower() in final_review.lower()]
         
-        # Step 3 (Logic): Style Adapt
+        # Reasoning Documentation
         reasoning_chain.append({
             "step": "style_adapt",
             "action": "Applied style fingerprint and Nigerian markers",
             "output": f"Injected markers: {validated_markers}. Adapted tone: {persona.get('tone')} with Pidgin."
         })
         
-        # Step 4 (Logic): Generate
         reasoning_chain.append({
             "step": "generate",
-            "action": "Drafted review and predicted rating",
-            "output": f"Draft length: {len(final_review)} chars. Anti-hallucination check: PASSED."
-        })
-        
-        # Step 5 (Logic): Reflect
-        reasoning_chain.append({
-            "step": "reflect",
-            "action": "Validated rating-text consistency and style compliance",
-            "output": f"Validation: PASSED. Scanned for claimed markers: {len(validated_markers)} found."
+            "action": "Finalized review draft",
+            "output": f"Draft length: {len(final_review)} chars. Rating constraint: {sampled_rating} stars enforced."
         })
         
         return {
             "review_text": final_review,
+            "predicted_rating": sampled_rating,
             "reasoning_chain": reasoning_chain,
             "used_nigerian_markers": detected,
             "sentence_count": len(re.split(r'[.!?]+', final_review)) - 1

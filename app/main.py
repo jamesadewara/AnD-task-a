@@ -70,5 +70,9 @@ async def redoc_html():
 async def root():
     return {"message": "Task A service is running", "version": "1.0.0"}
 
+@app.get("/health")
+async def health():
+    return {"status": "ok"}
+    
 # Register API Routers
 app.include_router(reviews_router, prefix="/api/v1/reviews", tags=["Reviews"])
