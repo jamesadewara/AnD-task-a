@@ -8,6 +8,28 @@ from app.schemas.responses import ReviewResponse, ErrorResponse, StyleSnapshot, 
 router = APIRouter()
 
 
+from fastapi.responses import StreamingResponse
+import json
+import asyncio
+
+@router.post(
+    "/generate/stream",
+    summary="Generate personalized review with SSE streaming",
+    description="Streams reasoning steps and the final result as SSE events."
+)
+async def generate_review_stream(request: ReviewGenerateRequest):
+    agent = ReviewAgent()
+    
+    async def event_generator():
+        try:
+            async for event in agent.generate_streaming(request.user_persona.model_dump(), request.product.model_dump()):
+                yield f"event: {event['event']}\ndata: {json.dumps(event['data'])}\n\n"
+        except Exception as e:
+            logger.error(f"Streaming error: {e}")
+            yield f"event: error\ndata: {json.dumps({'detail': str(e)})}\n\n"
+
+    return StreamingResponse(event_generator(), media_type="text/event-stream")
+
 @router.post(
     "/generate",
     response_model=ReviewResponse,

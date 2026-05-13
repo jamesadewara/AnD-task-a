@@ -66,12 +66,13 @@ class ReviewAgent:
         if pos_score > neg_score:     return 3.5
         return 3.0
 
-    async def _call_llm(self, messages: list, temperature: float = 0.7, max_tokens: int = 300) -> str:
+    async def _call_llm(self, messages: list, temperature: float = 0.7, max_tokens: int = 300, on_fallback = None) -> str:
         from app.core.llm import llm_service
         return await llm_service.get_completion(
             messages=messages,
             temperature=temperature,
-            max_tokens=max_tokens
+            max_tokens=max_tokens,
+            on_fallback=on_fallback
         )
 
     async def step_1_retrieve(self, product: dict, persona: dict) -> Dict[str, str]:
@@ -98,7 +99,7 @@ class ReviewAgent:
             "output": output
         }
 
-    async def step_3_reason(self, product: dict, persona: dict) -> str:
+    async def step_3_reason(self, product: dict, persona: dict, on_fallback=None) -> str:
         """Internal Reasoning Plan (LLM)"""
         logger.info("[ReviewAgent] Step 3: Generating reasoning plan")
         
@@ -116,7 +117,7 @@ class ReviewAgent:
         Output a 3-point plan. Do NOT hallucinate features.
         """
         messages = [{"role": "user", "content": prompt}]
-        return await self._call_llm(messages, temperature=0.5, max_tokens=200)
+        return await self._call_llm(messages, temperature=0.5, max_tokens=200, on_fallback=on_fallback)
 
     def _emergency_fallback_review(self, product: dict, persona: dict) -> str:
         price = product.get("price", 0.0)
@@ -128,7 +129,7 @@ class ReviewAgent:
         
         return f"I try {name}. E get potential but I need more time to sabi am well. 3 stars for now."
 
-    async def step_4_generate(self, product: dict, persona: dict, plan: str, rating_constraint: float = None) -> str:
+    async def step_4_generate(self, product: dict, persona: dict, plan: str, rating_constraint: float = None, on_fallback=None) -> str:
         """Generate the review draft with strict economic and rating constraints."""
         logger.info("[ReviewAgent] Step 4: Generating review draft")
         
@@ -221,7 +222,7 @@ class ReviewAgent:
         draft = ""
         
         while not draft.strip() and attempts < max_retries:
-            response = await self._call_llm(messages, temperature=0.7, max_tokens=250)
+            response = await self._call_llm(messages, temperature=0.7, max_tokens=250, on_fallback=on_fallback)
             draft = response.strip()
             attempts += 1
             
@@ -231,7 +232,7 @@ class ReviewAgent:
             
         return draft
 
-    async def step_5_reflect(self, draft: str, persona: dict) -> str:
+    async def step_5_reflect(self, draft: str, persona: dict, on_fallback=None) -> str:
         """Critique and revise for authenticity and adherence to constraints."""
         logger.info("[ReviewAgent] Step 5: Reflecting for authenticity")
         
@@ -251,8 +252,79 @@ class ReviewAgent:
         """
         messages = [{"role": "user", "content": prompt}]
         
-        response = await self._call_llm(messages, temperature=0.5, max_tokens=250)
+        response = await self._call_llm(messages, temperature=0.5, max_tokens=250, on_fallback=on_fallback)
         return response.strip() if response.strip() else draft
+
+    async def generate_streaming(self, persona: dict, product: dict):
+        """Streaming agentic workflow that yields steps as they occur."""
+        from app.ml.rating_predictor import RatingPredictor
+        
+        fallbacks = []
+        async def fallback_notifier(failed, next_mod, err):
+            fallbacks.append(f"⚠️ Model {failed.split('/')[-1]} rate-limited. Trying {next_mod.split('/')[-1]}...")
+        
+        # Step 1: RETRIEVE
+        step1 = await self.step_1_retrieve(product, persona)
+        yield {"event": "reasoning", "data": step1}
+        
+        # Step 2: ANALYZE
+        step2 = await self.step_2_analyze(product, persona)
+        yield {"event": "reasoning", "data": step2}
+        
+        # Probabilistic Rating Step
+        predictor = RatingPredictor()
+        p_res = predictor.predict_probabilistic(persona, product)
+        sampled_rating = p_res["rating"]
+        
+        step_rating = {
+            "step": "predict_rating",
+            "action": "Computed price shock and sampled probabilistic rating",
+            "output": f"Sampled Rating: {sampled_rating}. Formula: {p_res['formula']}. Price Shock: {p_res['shock']:.2f}."
+        }
+        yield {"event": "reasoning", "data": step_rating}
+        
+        # Step 3: Plan
+        plan = await self.step_3_reason(product, persona, on_fallback=fallback_notifier)
+        for f in fallbacks:
+            yield {"event": "reasoning", "data": {"step": "fallback", "action": "LLM Rotation", "output": f}}
+        fallbacks = []
+        
+        # Step 4: Generate
+        draft = await self.step_4_generate(product, persona, plan, rating_constraint=sampled_rating, on_fallback=fallback_notifier)
+        for f in fallbacks:
+            yield {"event": "reasoning", "data": {"step": "fallback", "action": "LLM Rotation", "output": f}}
+        fallbacks = []
+
+        # Step 5: Reflect
+        final_review = await self.step_5_reflect(draft, persona, on_fallback=fallback_notifier)
+        for f in fallbacks:
+            yield {"event": "reasoning", "data": {"step": "fallback", "action": "LLM Rotation", "output": f}}
+        fallbacks = []
+
+        if not final_review.strip():
+            final_review = self._emergency_fallback_review(product, persona)
+
+        # Validation logic (Simplified for streaming)
+        detected = detect_markers(final_review, persona)
+        archetype_label = persona.get("archetype") or "default_consumer"
+        
+        step_style = {
+            "step": "style_adapt",
+            "action": "Applied style fingerprint and Nigerian markers",
+            "output": f"Injected user's signature markers: {detected}" if detected else f"Formal archetype '{archetype_label}' adaptation."
+        }
+        yield {"event": "reasoning", "data": step_style}
+
+        final_review = final_review.strip().replace('"', '')
+        
+        # Final Result
+        final_result = {
+            "review_text": final_review,
+            "predicted_rating": sampled_rating,
+            "used_nigerian_markers": detected,
+            "sentence_count": len([s for s in re.split(r'(?<!\d)[.!?]+(?!\d)', final_review) if s.strip()])
+        }
+        yield {"event": "final_result", "data": final_result}
 
     async def generate_stateless(self, persona: dict, product: dict) -> dict:
         """Full structured agentic workflow with probabilistic rating model."""
