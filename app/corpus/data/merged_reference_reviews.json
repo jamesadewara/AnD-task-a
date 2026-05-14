@@ -1,0 +1,1359 @@
+{
+  "sf_001": [
+    {
+      "review_id": "ref_tobi_01",
+      "text": "Omo, this jollof na fire! Tobi for Lagos here, I tell you say the smokey taste reached my soul. Chicken soft and spicy. Value for money abeg.",
+      "rating": 5.0,
+      "user_archetype": "community",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_tobi_02",
+      "text": "Emeka from Enugu say the rice is okay sha, but portion small. Abuja people go complain for this 2500 naira rice. Authentic taste sha.",
+      "rating": 3.5,
+      "user_archetype": "haggler",
+      "tone": "mixed"
+    },
+    {
+      "review_id": "ref_tobi_03",
+      "text": "Too much oil today. Amina not happy at all. The chicken dry like firewood. No be the regular standard abeg. I'm disappointed.",
+      "rating": 2.5,
+      "user_archetype": "default",
+      "tone": "critical"
+    }
+  ],
+  "nw_010": [
+    {
+      "review_id": "ref_funmi_01",
+      "text": "Funmilayo here! Funke Akindele outdid herself. This movie is a masterpiece. I cried, I laughed. Judah brothers are just too much. 5 stars!",
+      "rating": 5.0,
+      "user_archetype": "community",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_funmi_02",
+      "text": "Kayode say the heist part was a bit unrealistic but the family bond was 100. 2000 naira well spent for the cinema experience.",
+      "rating": 4.5,
+      "user_archetype": "default",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_funmi_03",
+      "text": "I didn't like the ending. Too long for me. Bisi expected more action. It was just okay. Not worth the hype for me sha.",
+      "rating": 3.0,
+      "user_archetype": "default",
+      "tone": "formal"
+    }
+  ],
+  "el_012": [
+    {
+      "review_id": "ref_usman_01",
+      "text": "Usman in Kano! Starlink is a life saver for my remote work. Speed is mental. Expensive to buy but no more browsing wahala. 5 stars.",
+      "rating": 5.0,
+      "user_archetype": "big_woman",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_usman_02",
+      "text": "Nneka say the monthly sub is high. 38k every month? Omo, economy is hard. But the speed is better than all our local providers combined.",
+      "rating": 4.0,
+      "user_archetype": "haggler",
+      "tone": "mixed"
+    },
+    {
+      "review_id": "ref_usman_03",
+      "text": "Setup was a struggle. Took me 2 hours to get signal. Yetunde is not patient for this kind thing. For 440k, it should be plug and play.",
+      "rating": 3.0,
+      "user_archetype": "default",
+      "tone": "critical"
+    }
+  ],
+  "fs_002": [
+    {
+      "review_id": "ref_alhaj_01",
+      "text": "Pure royalty. Alhaji here, I bought this for my wife. The gold thread work is exquisite. You can't find this quality easily. Real prestige.",
+      "rating": 5.0,
+      "user_archetype": "big_woman",
+      "tone": "formal"
+    },
+    {
+      "review_id": "ref_alhaj_02",
+      "text": "120k is big money o! Tobi say the fabric is heavy and rich, but abeg, the price can buy small plot for some places. Beautiful sha.",
+      "rating": 4.0,
+      "user_archetype": "haggler",
+      "tone": "mixed"
+    },
+    {
+      "review_id": "ref_alhaj_03",
+      "text": "The color I got was slightly different from the picture. Bisi is not too happy. For this price, everything should be perfect. Disappointed.",
+      "rating": 3.0,
+      "user_archetype": "default",
+      "tone": "critical"
+    }
+  ],
+  "dn_003": [
+    {
+      "review_id": "ref_nneka_01",
+      "text": "Nneka from VI! This seafood okra is the truth. Loaded with prawns and crabs. Authentic taste in a classy environment. 5 stars abeg.",
+      "rating": 5.0,
+      "user_archetype": "community",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_nneka_02",
+      "text": "Emeka say 15,500 for okra is high, but the quantity of seafood made it worth it. You'll eat till you're tired. Real gourmet experience.",
+      "rating": 4.5,
+      "user_archetype": "haggler",
+      "tone": "mixed"
+    },
+    {
+      "review_id": "ref_nneka_03",
+      "text": "Service was slow today. Amina waited for 45 minutes for just soup. The food is good but the wait was annoying. 3 stars for the delay.",
+      "rating": 3.0,
+      "user_archetype": "default",
+      "tone": "critical"
+    }
+  ],
+  "wl_003": [
+    {
+      "review_id": "ref_bisi_01",
+      "text": "Bisi here! The ultimate Big Woman treatment. The massage cleared all my Lagos stress. Everything was premium. Expensive but worth it.",
+      "rating": 5.0,
+      "user_archetype": "big_woman",
+      "tone": "formal"
+    },
+    {
+      "review_id": "ref_bisi_02",
+      "text": "Kayode say 120k for one day spa is plenty money. It's nice sha, and the tea was good, but no be everyday thing for common man.",
+      "rating": 4.0,
+      "user_archetype": "haggler",
+      "tone": "mixed"
+    },
+    {
+      "review_id": "ref_bisi_03",
+      "text": "The pool was crowded today. Not the private experience Funmi expected for this price. Massage was okay but the vibe was off.",
+      "rating": 3.5,
+      "user_archetype": "default",
+      "tone": "critical"
+    }
+  ],
+  "ce_002": [
+    {
+      "review_id": "ref_tobi_l_01",
+      "text": "Tobi Lagos! Gidi Fest was a vibe. Sun, sand, and Afrobeats. The energy was 100. Best beach party of the year. Lagos is alive!",
+      "rating": 5.0,
+      "user_archetype": "community",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_tobi_l_02",
+      "text": "Amina say the gate crowd was too much. We almost got crushed. Inside was fun but security needs to do better abeg. 3.5 stars.",
+      "rating": 3.5,
+      "user_archetype": "default",
+      "tone": "mixed"
+    },
+    {
+      "review_id": "ref_tobi_l_03",
+      "text": "5k for small drink? Emeka is not smiling. The music was good but the prices inside were just ridiculous. You people are trying.",
+      "rating": 3.0,
+      "user_archetype": "haggler",
+      "tone": "casual_pidgin"
+    }
+  ],
+  "sf_016": [
+    {
+      "review_id": "ref_nneka_o_01",
+      "text": "Nneka in Owerri! Proper Isiewu. Spicy and rich. The Utazi leaf gave it that special finish. Perfect for evening enjoyment with drinks.",
+      "rating": 5.0,
+      "user_archetype": "community",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_nneka_o_02",
+      "text": "Alhaj say the pepper is no be for small boys. My nose was running! But the taste is 100. Price is fair for the quality.",
+      "rating": 4.5,
+      "user_archetype": "default",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_nneka_o_03",
+      "text": "Portion was a bit small for 6500. Usman expected more meat. It's more of bones and sauce today. Not happy with the value.",
+      "rating": 3.0,
+      "user_archetype": "haggler",
+      "tone": "critical"
+    }
+  ],
+  "el_007": [
+    {
+      "review_id": "ref_yetunde_01",
+      "text": "Yetunde! The camera quality is mental. I'm peppering them on IG with this phone. Expensive die but the status is worth it. 5 stars.",
+      "rating": 5.0,
+      "user_archetype": "big_woman",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_yetunde_02",
+      "text": "Tobi say 1.4m for phone is madness in this economy. It's a great phone sha, but I could buy a whole car with this money before.",
+      "rating": 4.0,
+      "user_archetype": "haggler",
+      "tone": "mixed"
+    },
+    {
+      "review_id": "ref_yetunde_03",
+      "text": "It gets hot when I'm charging. Funmi is worried. For this kind money, it should be perfect. I might return it abeg.",
+      "rating": 3.0,
+      "user_archetype": "default",
+      "tone": "critical"
+    }
+  ],
+  "ce_004": [
+    {
+      "review_id": "ref_emeka_c_01",
+      "text": "Emeka in Calabar! The carnival is the best thing in Africa. The costumes, the parade, the energy. Calabar is the place to be in December.",
+      "rating": 5.0,
+      "user_archetype": "community",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_emeka_c_02",
+      "text": "Bisi say the hotels are too expensive during carnival. We struggled to find a room. But the street party made us forget the stress.",
+      "rating": 4.0,
+      "user_archetype": "default",
+      "tone": "mixed"
+    },
+    {
+      "review_id": "ref_emeka_c_03",
+      "text": "The crowd was too much today. Amina lost her phone in the push. Please be careful if you're coming. Fun but chaotic abeg.",
+      "rating": 3.0,
+      "user_archetype": "default",
+      "tone": "critical"
+    }
+  ],
+  "https_www_yelp_com_biz_sidney_dairy_barn": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_sidney_dairy_barn_0",
+      "text": "All I can say is they have very good ice cream I would for sure recommend their cookies and creme ice cream it is very good",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "neutral"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_sidney_dairy_barn_1",
+      "text": "Nice little local place for ice cream.My favorite is their pumpkin shake ( Fall season special).( My Sweetness tolerance is low) Their LARGE SIZE ice cream usually seems too sweet after having ice cream for a while. But love their pina colada. So refreshing. Their Banana Split is good too.",
+      "rating": 4.0,
+      "user_archetype": "default",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_sidney_dairy_barn_2",
+      "text": "A delicious treat on a hot day! Staff was very friendly and helpful-- gave us a sample and let us order a little earlier than open.",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "neutral"
+    }
+  ],
+  "https_www_yelp_com_biz_rewind_ice_cream_": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_rewind_ice_cream__0",
+      "text": "Pro-tip: Definitely give the rotating ice cream flavors a try - they offer samples! The double scoop is worth the money if you're sharing with someone. Highlights: The female workers the night we went were super nice and so honest with their opinions about the ice cream flavors. They let us sample a few of them and then gave us the biggest double scoop! For sure worth $6. The ice cream itself was insanely good, very creamy, rich, and actually better than a ton of ice cream shops in the area. Low",
+      "rating": 5.0,
+      "user_archetype": "haggler",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_rewind_ice_cream__1",
+      "text": "After seeing some positive reviews about Rewind, I wanted to stop by and check it out for myself. A store that sells boba and ice cream at the same time? Say less and hook me up because I'm coming over at the speed of light. Now onto the review: Dessert/Drink (3/5): For the drink, I got a Blueberry Matcha Latte and I got the Matcha Madness (in a cone) for dessert. Let's start with the drink. As someone who absolutely loves matcha, I knew I had to order this. It is different from most matcha drin",
+      "rating": 3.0,
+      "user_archetype": "community",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_rewind_ice_cream__2",
+      "text": "I got the special! Orange creamsicle flavored soft serve. Comes topped w orange gummy bears. It tasted like orange sherbet that was shaped like soft serve. Defo not like an orange creamsicle. For $8.5 i feel like there should have been more richness or icecream-likeness. If I wanted orange sherbet I would go to walmart. I'll be trying one of their original blends next time.",
+      "rating": 3.0,
+      "user_archetype": "default",
+      "tone": "casual_pidgin"
+    }
+  ],
+  "https_www_yelp_com_biz_carlos_bakery_las": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_carlos_bakery_las_0",
+      "text": "First timer!!! It was ok! I think the cake would have tasted better if it wasn't refrigerated. I like room temperature cake.",
+      "rating": 3.0,
+      "user_archetype": "default",
+      "tone": "neutral"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_carlos_bakery_las_1",
+      "text": "Lived up to my expectations after watching Cake Boss all those years. Went back three times during our visit! Definitely recommend finding and their Restaurant across the way is awesome too!",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "neutral"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_carlos_bakery_las_2",
+      "text": "We came for their famous lobster tail pastry. They were $8 plus each. It was very crunchy not flakey. For my mom it was hard for her to bite into it because it was so crisp hard. It was okay. Probably will not buy it again. The rainbow slice cake was decent.",
+      "rating": 2.0,
+      "user_archetype": "default",
+      "tone": "neutral"
+    }
+  ],
+  "https_www_yelp_com_biz_the_vegan_doughnu": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_the_vegan_doughnu_0",
+      "text": "As an omnivore, I enjoy trying everything, including vegan fare. And I've got to say that the eponymous vegan doughnuts here are virtually indistinguishable from \"normal\" ones and are just as scrumptious as the most blingy \"gourmet\" varieties that I've had. And talking about gourmet donuts, there are a dozen varieties here, each of which are not just pretty to look at and therefore Instagrammable, but are also super scrumptious and high quality. No SoCal \"style\" over substance, that's for sure. ",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_the_vegan_doughnu_1",
+      "text": "We were walking to get some coffee and decided to stop in. They were going to close in less than 20 minutes. Lots of good options. Some of which rotate. We got a lemonade lavender, strawberry, and a blueberry one. All so delicious! Couldn't tell it was vegan and the texture and flavors are better than most donuts I've had. Staff was nice! 2 of them. They helped give suggestions and didn't rush us even though they were closing soon.",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_the_vegan_doughnu_2",
+      "text": "Visited The Vegan Doughnut Company today after much anticipation and hearing many rave reviews!! It 100% lived up to the hype! I tried the Fruity Cereal Milk and wow, it was delicious. The dough was so airy, fluffy, and light. It was sweet, but not overwhelmingly so. I also tried a few bites of their Easter-themed doughnuts, which were more of a cake doughnut consistency and also top-notch. The quality of these doughnuts is truly unmatched. I've heard a non-vegan say that these were the best dou",
+      "rating": 5.0,
+      "user_archetype": "big_woman",
+      "tone": "enthusiastic"
+    }
+  ],
+  "https_www_yelp_com_biz_the_butterwood_ba": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_the_butterwood_ba_0",
+      "text": "GOURMET CAKE & PASTRIES AT ITS FINEST! The Butterwood Bake Consortium is one of my favorite places to stop for dessert if I'm in the city. The shop has this super cool vintage speakeasy type of vibe and the cake and dessert assortments are incredible. This is not just a place you go for a slice of chocolate cake, however, no, no.... These flavors are anything but ordinary - pictured here: Lavender cake with agave buttercream. Or how about Rose Poppy seed with a vanilla frosting? Olive oil cake w",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_the_butterwood_ba_1",
+      "text": "Most disappointing experience I've ever had at a bakery. The service was exceptionally terrible, we were greeted by \"you have to leave by 11 o'clock,\" in a very snarky and rude manner. We ordered the chocolate chip cookie, lavender cake, chocolate mocha cake and a poppy rose cake. As a person with a sweet tooth, first time in my life none of the dessert items were remotely flavorful or good. Was excited given the hype around the sweets. The cake was dense and the icing was not soft; the chocolat",
+      "rating": 1.0,
+      "user_archetype": "default",
+      "tone": "critical"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_the_butterwood_ba_2",
+      "text": "Stopped in for the first time last night. Was a cute way to end date night. The vibes are chill AF and the aesthetic is very vintage living room meets comfy-cozy coffee shop. It was very lowkey and quiet - couple people were even reading books peacefully while enjoying their pastries. Everyone was very nice and the items were well priced. We didn't try their coffee because it was 9pm but it all looked good. We ordered an earl grey parfait cake to split. I was pleasantly surprised to find that it",
+      "rating": 5.0,
+      "user_archetype": "community",
+      "tone": "enthusiastic"
+    }
+  ],
+  "https_www_yelp_com_biz_handels_homemade_": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_handels_homemade__0",
+      "text": "Looking for what is the BEST ICE CREAM in TOWN? Look no further because Handel's is it!!! I first took notice of them back home in San Diego and my friend brought me to their Calrsbad location and when we first walked up it was a little building with a long line outside...that alone assured me that their ice cream was no joke and definitely going to be the talk of the town. Since then, I moved to Vegas and didnt think id ever find Handel's out here until I went to my trusty little app Yelp lol W",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_handels_homemade__1",
+      "text": "It's a walkup style ice cream shop. You place your order at the window and they prepare it right there. You can see inside from the window which is cool. There isn't anywhere to really sit, so expect to take it with you. This concept is exciting, but not in the Vegas heat because you wait in a line outside. They have so many ice cream flavors and mix ins. The best thing is that they have a banana split which is hard to find in Vegas! Sonic discontinued theirs so this is the next best place to ge",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_handels_homemade__2",
+      "text": "LP for my visit on 3/5. We had just finished lunch at Fukuburger and despite the fact that it was cold and windy, I was craving ice cream and in case you were wondering...no I'm not preggo :-) My friend recommended this spot and since I'm always about trying new places I readily agreed. I ordered the following: 1 pint of Chocolate Malt with Caramel (malted chocolate ice cream with caramel ripple) 1 pint of Coffee Chocolate Chip (coffee ice cream with chocolate chips) 1 scoop of Blue Monster (blu",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "mixed"
+    }
+  ],
+  "https_www_yelp_com_biz_am_C3_A9lies_fren": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_am_C3_A9lies_fren_0",
+      "text": "This is not your regular bakery, this is an experience. Honestly from the moment you walk in is a different world. They have amazing pastries but their ham and cheese croissant which is not really a croissant more like a quiche was mind blowing. Is always my favorite thing to eat there. Their lavender lemonade is amazing and fresh and the staff is super friendly. You order first your pastries and then your drinks. I loved to see how inclusive this place is, I felt welcomed from the moment I walk",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_am_C3_A9lies_fren_1",
+      "text": "Visiting from CA! The interior is cute and seems like a popular place to study/bring the aunties to lounge and converse. Decorations and ambience is 5/5. As for the actual food and drinks....let me begin with the drinks! I am a big Italian Creme Soda Girl and I loved every sip of my Peaches and Creme soda!!!! It is basically fresh milk with carbonated water/soda and peach purÃ©e. 10/5. I loved it so much and was sad that I finished it so fast. The iced coffee was eh my little sister drank it but",
+      "rating": 3.0,
+      "user_archetype": "community",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_am_C3_A9lies_fren_2",
+      "text": "Stopped by the new 36th Street location and it's really nice! The concept is the same as the original Amelie's, but a few more designs. The Eiffel Tower replica is a hit! There are macaroons and other dessert designs on the ceiling and it's really nice! Plenty of seating areas inside and a few tables outside. Great place to grab some really good food, desserts and coffee/tea! Give the new location a try!",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "casual_pidgin"
+    }
+  ],
+  "https_www_yelp_com_biz_bouchon_bakery_la": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_bouchon_bakery_la_0",
+      "text": "Good to come by for a quick bite and pastries. The original location is in Yountville, CA (near napa) so I was glad I didn't need to travel too far to try the famous Thomas Keller bakery! Had the Egg, Ham and Cheese Croissant. They heated it up (if you'd like). The croissant was a perfect softness and flakiness. I even ate it cold and it was still good! I'd definitely come back when I'm back in Vegas for the future. Just keep in mind the lines can be gnarly but they move quickly!",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_bouchon_bakery_la_1",
+      "text": "I honestly feel this place is all hype. First: service sort of sucks. There was an employee talking to another employee who was off of work and holding up the line to box her pastries and proceeded to hand them to her over the counter where the line starts. Not sure what company policy is, but she def pretended to pay and didn't. It's also super hard to find! I walked all around and finally a guy told me it's behind the escalators. Almond croissant: very good, buttery, flakey. I warmed it for 20",
+      "rating": 3.0,
+      "user_archetype": "default",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_bouchon_bakery_la_2",
+      "text": "Little hard to find but, right where the other reviewers said under the escalator at the back of the casino in the Venetian. Pain au chocolat was amazing texture/flavor and the almond milk latte was good, comparable to Starbucks pricing. Also grabbed a large macaron for $4.50. Glad we stopped by this morning. The line can get long but it moves quickly enough. They have lots of other things I look forward to trying.",
+      "rating": 4.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    }
+  ],
+  "https_www_yelp_com_biz_novel_ice_cream_p": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_novel_ice_cream_p_0",
+      "text": "My all time favorite ice cream place!! I love it here!!! The Cookie Monster with the donut is my all time fave!!!",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_novel_ice_cream_p_1",
+      "text": "Great customer service and the ice cream is the best ! We will come back next visit fir sure",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_novel_ice_cream_p_2",
+      "text": "Impromptu dessert stop to end date night, and oh so yummy! To full from dinner to get the doughnut, so we must come back soon, like maybe tomorrow!",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "casual_pidgin"
+    }
+  ],
+  "https_www_yelp_com_biz_sweet_republic_sc": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_sweet_republic_sc_0",
+      "text": "Great ice cream!! Great staff! We were visiting from California looking for good ice cream and found this little gem! Try the dill pickle ice cream...soooo good!!",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "neutral"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_sweet_republic_sc_1",
+      "text": "Great local spot for homemade ice cream. Games available for kids. I wish they would expand their vegan options!",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "neutral"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_sweet_republic_sc_2",
+      "text": "Good ice cream. Nothing out of the ordinary. Everyone was friendly. Pretty busy but line moved fast.",
+      "rating": 4.0,
+      "user_archetype": "community",
+      "tone": "casual_pidgin"
+    }
+  ],
+  "https_www_yelp_com_biz_sprinkles_las_veg": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_sprinkles_las_veg_0",
+      "text": "I was so upset when I walked down the Linq to get one of my favorite cupcakes last night and found they are closed . I wish I would have bought one from the ATM at the airport when we flew in. Are you located anywhere else in. Eggs?",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "neutral"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_sprinkles_las_veg_1",
+      "text": "It was late at night and I was craving something sweet Lucky we found this cute cupcake ATM close to the linq Hotel. I loved the concept of getting a cupcake from ATM. It's is one of the cool & interesting tourist attractions on the strip. The place looked cute and so adorable. I got the red velvet cupcake and it tasted amazing. The machine was easy to use. The whole street looks super cute and colorful.",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_sprinkles_las_veg_2",
+      "text": "Really yummy cupcakes! I've always to try a Sprinkles cupcake, but there just weren't any shops in my area. After traveling to Vegas, I can now gladly say that I got to experience the taste of them:) (I've had better chocolate ones, though;)",
+      "rating": 4.0,
+      "user_archetype": "default",
+      "tone": "mixed"
+    }
+  ],
+  "https_www_yelp_com_biz_fatty_daddys_scot": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_fatty_daddys_scot_0",
+      "text": "Cute little spot with a lot of good flavors! The girl in the shop was super sweet and friendly. Explained what they offered since it was our first time there. I had the double that came with a macaron and a toasted marshmallow. Fruity pebbles and birthday cake flavored in the cup. Perfect amount and very good! Clean place with seats inside and outside. We got there and we're the only 2 there; soon enough people started coming in! Totally recommend! So many options.",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_fatty_daddys_scot_1",
+      "text": "Really cool spot , great service , dog friendly , good price . Icecream portions are generous . Overall: 4.2 Icecream: 4.2 Vibe: 4.2",
+      "rating": 4.0,
+      "user_archetype": "default",
+      "tone": "neutral"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_fatty_daddys_scot_2",
+      "text": "Its so sad that they werent open eventhough it says open. I stopped here on an ice cream date with my 3 year old son and unfourtanetly we had to drive somewhere else just to get ice cream because they were closed. Please make sure to update your business information because you can easily loose cuatomers with false information. So not worth it.",
+      "rating": 1.0,
+      "user_archetype": "haggler",
+      "tone": "neutral"
+    }
+  ],
+  "https_www_yelp_com_biz_85_c_bakery_cafe_": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_85_c_bakery_cafe__0",
+      "text": "You don't want to spend $60 on brunch out with your family... but you also don't want to cook at home. This dilemma has a solution: Go to 85 Bakery and stock up on both sweet and savory baked goods at about $4 or less each. It's like getting to-go, saves-great tapas that taste delicious at every meal! From ham and cheese croissants, to large pizza rolls, and finally those classically sweet taro or chocolate puff pastries, 85 Bakery has it all! But you MUST go in the morning, near when they first",
+      "rating": 5.0,
+      "user_archetype": "haggler",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_85_c_bakery_cafe__1",
+      "text": "I have been to their other locations in California several times in the past. Excited to find this branch in Las Vegas. Located in the busy shopping plaza. We came here during lunch time on a Sunday. Still I could find a parking spot. There was a variety of bread. Very difficult to pick. They also had cakes. I bought some bread that had creams inside. I loved the soft and not too sweet cream. They tasted very good. I wanted to try their coffee but regular ones were out. Only decaf available. The",
+      "rating": 5.0,
+      "user_archetype": "community",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_85_c_bakery_cafe__2",
+      "text": "My friends love their cakes. My aunt and family love their variety breads. Whenever they give me some, I always love whatever they got me. So I finally went here for the first time and I love it here! It was past 8pm when we got here, they still have a lot of breads! I saw the staff refilling their stock. There were a good amount of customers and no matter how busy they were, whenever I ask someone, they would politely answer my questions, with smiling faces and does not make me feel like I am b",
+      "rating": 5.0,
+      "user_archetype": "community",
+      "tone": "enthusiastic"
+    }
+  ],
+  "https_www_yelp_com_biz_melt_phoenix": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_melt_phoenix_0",
+      "text": "Fun vibes, amazing quick service and delicious ice cream!!! Absolute will be returning!!",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_melt_phoenix_1",
+      "text": "I wanted ice cream for lunch while passing through AZ and 111 degrees by noon. Phoenix was the next town so I laid my money and time down on finding The Melt. I passed by a place that looked like a bar or restaurant but figured maybe The Melt was inside? Anyway, it was a bit confusing to enter a bar type atmosphere at noon thinking \"ice cream parlor...?\" but forged forward towards the counter and there was a small ice cream case with nirvana inside. The flavors were fascinating and I settled upo",
+      "rating": 5.0,
+      "user_archetype": "haggler",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_melt_phoenix_2",
+      "text": "andrew is such a king fr. this man scooped my ice cream with love. he needs a raise. love u andrew",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    }
+  ],
+  "https_www_yelp_com_biz_jack_frost_donuts": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_jack_frost_donuts_0",
+      "text": "The best in town. Fresh--made on the premises. Delicious--They sell out before 3 pm every day. Great combinations of flavors, and best tasting standards.",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_jack_frost_donuts_1",
+      "text": "The best donuts I've ever had in my life. Hate they run out quickly and close once everything is sold out.",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_jack_frost_donuts_2",
+      "text": "Fresh baked yesterday! Ordered a half dozen various doughnuts...all were dried out and old tasting. We had to toss them into the trash. Expensive at $3.15 per doughnut...Another customer asked to buy one and when she heard the price, she turned around and walked out! Gas station doughnuts are fresher. There was nothing extraordinary about Jack Frost doughnuts to justify the high price!",
+      "rating": 1.0,
+      "user_archetype": "haggler",
+      "tone": "casual_pidgin"
+    }
+  ],
+  "https_www_yelp_com_biz_jenis_splendid_ic": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_jenis_splendid_ic_0",
+      "text": "Never disappoints. Get the waffle Cone! Always a line so trying to come on a weekday if you are visiting from out of town is a solid decision. They let you try a flavor or two so I would do so before committing. The brickleberry is always a great choice!",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "neutral"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_jenis_splendid_ic_1",
+      "text": "WOW. Always worth it. How can you not love Jeni's Splendid ice cream?! Every time we're visiting the Charlotte area, we make sure to make room for some ice cream. There's a ton of different locations, some better than others due to the flavors at each. But let me tell you about the must-haves. Jelly donut and coffee ice cream is like having breakfast right? That jelly donut was to DIE FOR. I think it's a seasonal flavor so count yourself lucky if you've been able to get it. I love coffee ice cre",
+      "rating": 5.0,
+      "user_archetype": "haggler",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_jenis_splendid_ic_2",
+      "text": "Tasted the weirdest ice-cream flavor here - Bagel and Cream Cheese. I guess, they had bits of bagel in the ice-cream too. Became an instant fan of their brambleberry crisp!!",
+      "rating": 3.0,
+      "user_archetype": "default",
+      "tone": "neutral"
+    }
+  ],
+  "https_www_yelp_com_biz_mitchells_homemad": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_mitchells_homemad_0",
+      "text": "We love Mitchell's and this is such a great location. It is bright and open and you can see the ice cream being made in the back! Today we took a fun tasting tour and got to learn a little more about how the ice cream was made. Our favorite is the Peanut butter fudge sundae with peanut butter chocolate chunk ice cream! But today we tried the black raspberry chocolate chunk and double chocolate chunk...both were so creamy and delicious!",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_mitchells_homemad_1",
+      "text": "Mitchell's makes some of the best ice cream hands down. There's always so many flavors, seasonal and regular, to try. The offer vegan flavors, sorbet, shakes, and cakes as well. Even if there's a line out the door, it's 100% worth the wait to get a scoop or more.",
+      "rating": 5.0,
+      "user_archetype": "haggler",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_mitchells_homemad_2",
+      "text": "You literally cannot beat Mitchell's ice cream. I eat it daily (hate to admit it?).. I buy it at the local grocery stores as well. Favorite flavors include the seasonal campfire s'mores and cold brew. Also love ALL the vegan flavors.. even the \"plain\" chocolate.. seriously the best chocolate ice cream I've ever had. If you haven't tried Mitchell's yet, you are waaay behind the times. Get there ASAP!!",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    }
+  ],
+  "https_www_yelp_com_biz_prestis_bakery_cl": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_prestis_bakery_cl_0",
+      "text": "Made a quick stop on a Saturday, mid-afternoon. There were a few spaces for street parking during the summer in front of the bakery, and although the line was long, if was pretty fast. We tried cannolis, an apple tart-like pastry, and something akin to a cinnamon roll. All delicious! We will be back! Note: There is a Catholic church across the street. This seems like a great place to stop by after church!",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_prestis_bakery_cl_1",
+      "text": "This place was busy for a Monday dinner hour. Tip: Take a number for service! I missed it when I entered and thought I was going to miss my chance at a cannoli. Luckily, I was able to snatch one and a creme brÃ»lÃ©e. The cannoli was overly sweet and felt dry eating through it. The creme brÃ»lÃ©e surprised me at how not sweet it was (which is a good thing!) The let down of the creme brÃ»lÃ©e is that that I know it's been sitting there for some time because the top doesn't crack as smoothly when i",
+      "rating": 3.0,
+      "user_archetype": "community",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_prestis_bakery_cl_2",
+      "text": "I really love the food here. The flavors are amazing. There is a large variety of choices deli style from entrees to deserts. The staff makes me laugh. They are not necessarily the friendliest but they remind me of Seinfeld with the various characters and so I actually enjoy the personalities. Just don't take their rush personally. There is always a line to the door and it's not easy trying to take care of the customers as fast as they come for the food here. Normally I would give this a 5 stars",
+      "rating": 4.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    }
+  ],
+  "https_www_yelp_com_biz_villanis_bakery_c": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_villanis_bakery_c_0",
+      "text": "Went to this bakery for the first time today at my girlfriend's recommendation. I got the s'mores bar (I'm a sucker for s'mores anything) and tried some of the lobster tail, both were great and the wait wasn't too long on a Saturday afternoon. Definitely an affordable bakery spot with a great assortment of options if you're in the area.",
+      "rating": 5.0,
+      "user_archetype": "haggler",
+      "tone": "neutral"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_villanis_bakery_c_1",
+      "text": "We were so excited to finally try out this Italian bake shop, but we were really let down. First, it's a very cute, simple little shop with lots of parking and some picnic tables for outside munching, which I think is great. Inside is cramped--no biggie though. Next, the staff were adequately pleasant--nothing to write home about. They took our order, packed everything nicely and took the payment. But the food was subpar. This is not our first foray into Italian pastries--in NY they rule the pas",
+      "rating": 2.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_villanis_bakery_c_2",
+      "text": "I've been wanting to try this bakery due to all the rave reviews on Yelp. It's a 30 min drive from me, so it's definitely an out of way stop for us. We decided to make a morning of it and got there at 9am. It's a small shop in a nondescript gravel parking lot with a few picnic tables outside. They have a lot of pastries available and the staff were quick to take orders. With this being my first visit, I needed more time and asked a lot of questions. The lady was helpful in answering them. We got",
+      "rating": 3.0,
+      "user_archetype": "haggler",
+      "tone": "casual_pidgin"
+    }
+  ],
+  "https_www_yelp_com_biz_batch_bakehouse_m": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_batch_bakehouse_m_0",
+      "text": "Batch has the most consistent quality and best variety of pastries and desserts in the area. Lots of good, tasty stuff and always great service. I like the cakes, cupcakes but especially the tarts and other pastries near the front of the store. Slightly less impressed with the breads which are decent but not great.",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_batch_bakehouse_m_1",
+      "text": "This is hands down my FAVORITE bakery in Madison! You will not be disappointed any anything they make here...my most favorite is their key lime pie , it's so rich and smooth and just a great dessert! I never pass up grabbing a few of their 1\" decorated cookies near the register. It's amazing how something so small can have such a BIG taste! Make SURE to grab a croissant (any kind or flavor they have!!) because they will leave you craving for more - so crisp, soft and delicious at the same time. ",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_batch_bakehouse_m_2",
+      "text": "This was our first time trying this bakery and I must say, wonderful so far!!! My husband gets my carrot cake for my birthday every year and our other bakery was not an option this year. We will be getting more from here for sure. The carrot cake is a 6 in and very dense and a small slice goes a long way!!! So damn good!! I am excited to try other baked goods. Ordering was easy on their website and it was ready to pick up.",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "neutral"
+    }
+  ],
+  "https_www_yelp_com_biz_chocolate_shoppe_": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_chocolate_shoppe__0",
+      "text": "Visited Chocolate Shoppe during their 60th Anniversary to celebrate with them by getting ice cream. I got the Rocky Mountain fudge which was a combination of vanilla, chocolate, and had chunks of fudge brownie as well. I have tried 6 different flavors of ice cream at Chocolate Shoppe and all of them have been very delicious tasting. The 60th anniversary was super cool to celebrate and all single-scoop ice cream cones were 60 cents that day. The ice cream is pretty affordable at the regular price",
+      "rating": 5.0,
+      "user_archetype": "haggler",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_chocolate_shoppe__1",
+      "text": "My buddy was super disappointed when the mobile food location at the zoo was not open after our visit to the zoo so I jumped on yelp to find the closest location. My buddy swears that this is the best ice cream on earth so I'm down, I'm not big into ice cream so I imagine it will be just ice cream to me. The place is very tempting with so many interesting flavors and when I was asked what I want I said I need a minute to take it all in. My buddy went full on with two different scopes on a sugar ",
+      "rating": 4.0,
+      "user_archetype": "default",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_chocolate_shoppe__2",
+      "text": "Well, it was 46F when I decided I needed to have ice cream!!!!! Can't let the opportunity pass and went in to get me some espresso oreo!! The shop was practically empty. I wasn't surprised because it was freezing then. The ice cream was really good. I especially like coffee flavored ice cream and this one didn't disappoint. I failed to take a pic of it just because I was hurrying to go back to my hotel. I will definitely come back and get the other coffee flavored ice cream they have.",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "neutral"
+    }
+  ],
+  "https_www_yelp_com_biz_ghirardelli_ice_c": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_ghirardelli_ice_c_0",
+      "text": "I ordered the frozen hot cocoa 10/10!!! Must have. We also got the Nob Chill Hill. It was okay. We didn't like it. 3/10",
+      "rating": 4.0,
+      "user_archetype": "default",
+      "tone": "neutral"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_ghirardelli_ice_c_1",
+      "text": "Ghirardelli's originally started in San Francisco where we lived near the Square but was here in Las Vegas for 7K 1st Convention and after Sessions of greatness learning and ways to Reaping Benefits walked the Vegas Miles with our 7K Ohana Group to Bellagio Water Fountain show then to Volcano Lava flow at Mirage got hungry for ice cream came up on this Ghirardelli's Ice Cream Shop at LinQ mostly everyone ordered a large Sundae but with my limited sugar intake tried to order small shake but to no",
+      "rating": 3.0,
+      "user_archetype": "community",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_ghirardelli_ice_c_2",
+      "text": "Attitude from the top down, rude manager, rude employees. No greeting, they stare at you. No how can I help you, they stare. You order, they tell you a dollar amount and hand you a receipt. Too bad, Ghirardelli is a top name, a few employees ruin it. Addition to my review, within a short period this same day, I received a message from Ghirardelli Corporate Customer Relations, concerning this. I am grateful that they've demonstrated this is not how Ghirardelli wants to be represented, and that th",
+      "rating": 1.0,
+      "user_archetype": "default",
+      "tone": "casual_pidgin"
+    }
+  ],
+  "https_www_yelp_com_biz_milk_bar_las_vega": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_milk_bar_las_vega_0",
+      "text": "I finally tried the cereal milk soft serve and it definitely lived up to the hype! I personally LOVE the taste of \"cereal milk\", so if you're like me, you'll LOVE THIS. You HAVE to get it with the cornflake topping. That's what sets it apart from a typical soft serve. They do this genius thing where they put the cornflakes on the top AND the bottom of the soft serve. I was so pleasantly surprised to find more cornflake crunch at the bottom of my cup. It really is the simple pleasures in life. My",
+      "rating": 5.0,
+      "user_archetype": "haggler",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_milk_bar_las_vega_1",
+      "text": "It's really hit-or-miss at Milk Bar, but for the most part their desserts are way too sweet. I saw the chef's episode - Christina Tosi - on Chefs Table on Netflix and have been to Milk Bars across the country and I don't recommend anything really, which is a shame because I have lots of respect for the chef herself. Here's what I've had: It was our friends bday so they brought over these Milk Balls to Momofuku to end the meal. The only cute thing about it was the candle. It was just a crumbled u",
+      "rating": 2.0,
+      "user_archetype": "community",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_milk_bar_las_vega_2",
+      "text": "Tourist trap. Save yourself; calories, money, heartache taste buds etc...skip this place. Don't let those lines fool you. Elevated Strip prices for average dessert. The overpriced #Sugar: ~ WAFFLE CONE PIE - 2/5 Looks way better than it tastes. Nothing stood out about it. Initially I thought it was going a slice of Ice Cream cake...which would probably be better. It wasn't. At $7 for a tiny slice and $54 for the whole cake...I'll pass. Ridiculous.  ~ CHOCOLATE PB CRUNCH SUNDAE - 3/5 Once again l",
+      "rating": 2.0,
+      "user_archetype": "haggler",
+      "tone": "critical"
+    }
+  ],
+  "https_www_yelp_com_biz_jarlings_custard_": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_jarlings_custard__0",
+      "text": "Ice cream was good but I ordered lemon ice cream with marshmallow crÃ¨me and strawberries and got vanilla ice cream and marshmallow crÃ¨me but no strawberries. But ice cream slapped anyway so not to upset just wish I got what I ordered ya know.",
+      "rating": 3.0,
+      "user_archetype": "default",
+      "tone": "mixed"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_jarlings_custard__1",
+      "text": "I LOVE THIS PLACE. It's pretty close to happiness on earth. Their snowstorms are the best. Be warned, it melts really fast. But the texture is super light and doesn't give you that heavy feeling after you eat ice cream. My go to is their blueberry cobbler. It has blueberries and oatmeal crumbles in their vanilla custard which is absolutely AMAZING It's a great place which outdoor seating to chill with friends and to enjoy the summer weather. Whether you're a local or just here for the weekend, t",
+      "rating": 5.0,
+      "user_archetype": "haggler",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_jarlings_custard__2",
+      "text": "Now you should know that I take my ice cream reviews very seriously. I came here right after flying into Champaign to visit my friend and was looking forward to visiting a place she had grown up going to. We got to the counter and both ordered grasshopper snowstorms. It was quite popping in the back and we noticed someone holding what looked like one of our orders. After a few more minutes two people (one of which was the person we saw earlier) came to the counter with our snowstorms and the one",
+      "rating": 3.0,
+      "user_archetype": "default",
+      "tone": "casual_pidgin"
+    }
+  ],
+  "https_www_yelp_com_biz_somisomi_las_vega": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_somisomi_las_vega_0",
+      "text": "Just great asian ice cream every time, taste is outstanding and the fish waffles are always fresh",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "neutral"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_somisomi_las_vega_1",
+      "text": "following up on my previous message, I wanted to change my review to a 5 star. Not only did the owner ensure to provide a better experience for me, but the employees also made sure I was provided with exceptional all service. For a Company to show that they care about their customers' experience is rare and Somi Somi in the Henderson location is worth visiting! Thank you for the wonderful experience!",
+      "rating": 5.0,
+      "user_archetype": "haggler",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_somisomi_las_vega_2",
+      "text": "Hands down one of my go to when I want something sweet! Not only is the ice cream DELISH, but the experience was so FUN! I love watching the staff make the cones and the taiyaki! I haven't had a bad experience here yet! The staff is typically friendly and fast! I got the upside down ah bong with strawberry and guava swirl and the hubby got ube. It's so good and affordable!",
+      "rating": 5.0,
+      "user_archetype": "haggler",
+      "tone": "enthusiastic"
+    }
+  ],
+  "https_www_yelp_com_biz_scooptopia_phoeni": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_scooptopia_phoeni_0",
+      "text": "A Filipino family owns this place so when I am home sick I come here and order the hot Taho or Boba tea. They have great ice cream flavors, too!",
+      "rating": 5.0,
+      "user_archetype": "community",
+      "tone": "neutral"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_scooptopia_phoeni_1",
+      "text": "Scooptopia automatically receives a high rating by default simply because of where they source their ice cream. Scootopia uses ice cream from Scooptacular, this little ice cream shop in Laveen that makes some of the most amazing ice cream that I've ever tasted. The fact that the same ice cream can be obtained here rather than driving to Laveen is enough to make me very happy. As for the other desserts, such as the halo-halo? I can't speak for those, as it will require a return visit which I full",
+      "rating": 4.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_scooptopia_phoeni_2",
+      "text": "I was on a mission to find halo halo on our stop in phx. The one they make at scooptopia is beautiful, just not the proportions I'm used to. Halo halo is difficult because everyone's got their preferences for sure, so every family makes it totally different. Lots of ice, missing creamy goodness and more of that purple deliciousness that is ube ice cream. If you're a lover of the textured ice and jelly preserves this is gonna be your jam. It satisfied my craving but I also stopped at the market b",
+      "rating": 3.0,
+      "user_archetype": "community",
+      "tone": "casual_pidgin"
+    }
+  ],
+  "https_www_yelp_com_biz_churn_phoenix_3": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_churn_phoenix_3_0",
+      "text": "Great every single time we go! It was hot waiting outside in the line, but worth it. The winner is always Vietnamese coffee, I got an Affogato this time. Their twist on it includes vanilla & Vietnamese coffee scoops, espresso, float style w/a Mexican coke add. Wouldn't think coffee and coke would work, but it does! They have rotating seasonal specials, this time around it included peaches and honey & apple pie, amongst other flavors. We had a large group of about 11 and everyone was happy! Great",
+      "rating": 5.0,
+      "user_archetype": "community",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_churn_phoenix_3_1",
+      "text": "Pro-tip: Expect a line. There's no place to eat inside. They offer samples. You can split one scoop into two mini scoops for more flavors. For the floats, they give you the rest of the soda in the bottle/can. Highlights: The pricing is really affordable for someone who wants a double or triple scoop since one scoop is $5 and it's only $1 more for 2x the ice cream or $2 more for 3x the ice cream. The ice cream is good quality and the flavors are distinct as well. Lowlights: It would be nice if th",
+      "rating": 4.0,
+      "user_archetype": "haggler",
+      "tone": "mixed"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_churn_phoenix_3_2",
+      "text": "Updated 6/13/22: After writing my review below about the cracked ice cream cone, the team at Churn reached out to me wanting to hear more about my experience. I sent them an email and they were generous enough to send me a $15 gift card in the mail. I have now been back twice and can truly say that this is the best ice cream in the Valley (of all the places I've tried so far!). I am absolutely obsessed with the Double Chocolate and Peanut Butter combo. It is so incredibly creamy and flavorful. I",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "casual_pidgin"
+    }
+  ],
+  "https_www_yelp_com_biz_donut_bar_las_veg": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_donut_bar_las_veg_0",
+      "text": "Best donuts in Vegas. The donuts are balanced with good dough, sweet, and flavor. They are not greasy. The staff is very friendly. We are regulars here, tried everything, and find them all enjoyable. The grilled cheese donut w/ Sriracha is phenomenal! I also love the lemon pistachio and Samoa when available. The menu rotates weekly and a few constants. Get here early, they close when they sell out. Their espresso drinks are great too! Joe, the owner is a great guy. I appreciate his craftsmanship",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_donut_bar_las_veg_1",
+      "text": "On every stage is a moment for you to shine, as you glow pass along that love and passion for someone else to cherish and celebrate. If your ever in old town, down town Las Vegas stop in for a donut and some coffee. What goes better than these two phrases coffee and donuts? Great I'm glad that your paying attention. Now this ordinary shop might seem dilapidated because it's \"downtown,\" but just walk through the door and enjoy the beauty. Now make sure and get here before around noon time because",
+      "rating": 5.0,
+      "user_archetype": "community",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_donut_bar_las_veg_2",
+      "text": "Still a great place. This time I took my daughter here. I had the apple fritter and she had a special donut of the day. I noticed they have pop tart \"donuts\". I didn't get one as I wasn't in the mood for that much extra sugar. Great place always busy but with friendly staff.",
+      "rating": 5.0,
+      "user_archetype": "community",
+      "tone": "mixed"
+    }
+  ],
+  "https_www_yelp_com_biz_masons_creamery_c": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_masons_creamery_c_0",
+      "text": "When I found this spot on Yelp, I knew we had to try it. My husband and I love bubble waffles and unique ice cream flavors and this spot delivered. My husband and I got a Bubble Waffle with Black Sesame/Ube Ice Cream and Marzipan Whipped Cream. I loved all of it. I've never seen a place that makes flavored whipped cream before. It was delicious. I'd highly recommend checking out this ice cream shop.",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_masons_creamery_c_1",
+      "text": "Did you know they served Korean corn dogs? Because I did not. This is not a corn dog review but it's worth mentioning because they are trendy and, to my knowledge, Mason's is the only one doing them in Cleveland thus far. This is a review of the ice cream. Do you want interesting flavors? If so this is your place! To be honest I'm not sure how often they change the flavors but they're always innovative. I've had the black sesame but this time I got a small two scoop - malted chocolate and tahiti",
+      "rating": 4.0,
+      "user_archetype": "haggler",
+      "tone": "mixed"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_masons_creamery_c_2",
+      "text": "Amazing ice cream! My partner and I went looking for local ice cream and happened upon this gem, just a few weeks after it had been featured on Guy Fieri's Diners, Drive-Ins & Dives. I'm a sucker for coffee ice cream, and I almost went with the Dalgona Coffee flavor. But, the ube and Thai tea flavors caught my eye last minute and I got both. The combo was SO GOOD. Think of pumpkin ice cream with less overly-sweetness. The ube is especially good. Bonus points for being the smoothest and creamiest",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "casual_pidgin"
+    }
+  ],
+  "https_www_yelp_com_biz_ninety_s_milkshak": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_ninety_s_milkshak_0",
+      "text": "Great ice cream. One of the best ice cream places located here in Charlotte, NC. Keep up the great work",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_ninety_s_milkshak_1",
+      "text": "What's better than 80 degrees, ice cream and a sunset? I can't think of anything! This was probably my third and favorite visit. I opted for a single scoop of butter pecan, nothing too crazy. It was delicious, and the mix of cinnamon took it to five stars. I love getting ice cream and being able to walk the boardwalk. The boardwalk is under construction in some areas, so be aware.",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_ninety_s_milkshak_2",
+      "text": "Only thing is ice cream is good for is pictures. If you care about taste I wouldn't come here. I don't know how this place has good reviews unless the people who tasted this ice cream came here during the pandemic and didn't realize they lost their taste yet. Drove 15 minutes here and was so disappointed. Ice cream taste like someone went to the dollar store bought the cheapest vanilla ice cream they could find, added a bunch of unnecessary food colorings which gave the ice cream a metal afterta",
+      "rating": 1.0,
+      "user_archetype": "haggler",
+      "tone": "enthusiastic"
+    }
+  ],
+  "https_www_yelp_com_biz_pages_pittsburgh": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_pages_pittsburgh_0",
+      "text": "This place has me coming back all the time. The soft serve is still delicious, and I feel like the toppings/varieties are just continuing to grow. Pick a flavor that you love and you can't go wrong. Expect long waits in the evenings. My only complaint every visit was that there was no outside menu to help me decide which delicious treat I was going to indulge in. (I would usually have to peak through the windows to make a last minute decision). But Lo behold.",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_pages_pittsburgh_1",
+      "text": "If you're in the mood for a delicious, refreshing treat, then you need to try Paige's Ice Cream! This local ice cream shop has a wide variety of flavors to choose from, so there's something for everyone. The ice cream is made fresh daily and is always super creamy and flavorful. The staff at Paige's Ice Cream are always so friendly and welcoming, and they make sure you're getting exactly what you want. They offer samples of any flavor you want to try, so you can be sure you're getting exactly wh",
+      "rating": 5.0,
+      "user_archetype": "community",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_pages_pittsburgh_2",
+      "text": "It's always ice cream o clock for me! And Page is the reason why! A family owned and operated treasure, Page is one of the oldest soft serve places in Pittsburgh. I took my parents here and they loved it! We ordered a vanilla chocolate twist topped with nuts, coffee soft serve and blueberry soft serve. They were all delicious! The best part is that it's not very sweet and heavy. The portion size is good and not overwhelming. We ordered small size with waffle cone. There has always been a queue b",
+      "rating": 5.0,
+      "user_archetype": "community",
+      "tone": "enthusiastic"
+    }
+  ],
+  "https_www_yelp_com_biz_mary_coyle_phoeni": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_mary_coyle_phoeni_0",
+      "text": "Sweet Treats It has been a very long time since I revisited Mary Coyle's and a few things have changed. Lunch items are no longer offered on the menu, this place had the best BLT sandwich that was loaded with bacon. Even though the lunch items are gone Mary Coyle's is serving up some of the most delicious sweet treats, some of the best ice cream in town. On this visit my lunch companion and I shared the Caramel Cashew \"God Bless You\" and the \"Thick Ol' Fashion Chocolate Milkshake\" and both were ",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_mary_coyle_phoeni_1",
+      "text": "One of my favorite ice cream parlors. I haven't been hear in years. But the ice cream was just as awesome as I remember years ago. The staff were nice 2 young kids working. They may have been young teenagers and were doing a lot of talking with each other but they gave customers 110% of their attention when a customer came in or needed something. They were both very polite.",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_mary_coyle_phoeni_2",
+      "text": "We were in the area and wanted a quick sweet. The place is easy to find and was very clean upon walking in. There is a board that lists all their flavors. I'm a visual person and didn't like the ice creams weren't visible to check out. First time I have saw an ice cream place that didn't have them all displayed. Anyway, ordering was quick and easy and prices are on par. We kept it simple and got a scoop of strawberry with hot fudge which was topped with whip cream and a cherry. The ice cream tas",
+      "rating": 3.0,
+      "user_archetype": "default",
+      "tone": "mixed"
+    }
+  ],
+  "https_www_yelp_com_biz_sinful_sweets_cho": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_sinful_sweets_cho_0",
+      "text": "Wow, I definitely wasn't expecting to be blown away by a dessert shop in a mall food court! But, I definitely am. While at Ross Park Mall, I stopped by Sinful Sweets (or as their sign says, 'Cookies and Cream') and got some vanilla ice cream, a peanut butter deep dish cookie, and a chocolate macaron deep dish. There was only one lady working at the shop. She was extremely friendly. When it was time to pay, she tried to put the cookies into a cookie box but they ran out. Instead, she offered to p",
+      "rating": 4.0,
+      "user_archetype": "haggler",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_sinful_sweets_cho_1",
+      "text": "We stopped by their location at Ross Park Mall to pickup some sweets. They have so many options to choose from, it's so hard to pick! They have chocolate covered strawberries, edible cookie dough, cupcakes, truffles, cookies, and so much more! The cupcakes are big and so cute!",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "neutral"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_sinful_sweets_cho_2",
+      "text": "edible raw chocolate chip cookie dough ?! YES please. love that they serve it in an icecream cone",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    }
+  ],
+  "https_www_yelp_com_biz_sloans_grand_cana": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_sloans_grand_cana_0",
+      "text": "Vegan Strawberry & Vegan Chocolate Coconut The vegan chocolate coconut is one of thee best vegan chocolate ice creams I think I've had here in vegas! Super smooth and creamy. Not watery or icy like a few vegan chocolates I've had over the years. The strawberry was sweet and tart, with bits of chopped strawberries throughout. I loved both! And I believe there were two other Vegan flavors to choose from that I saw during my visit!",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_sloans_grand_cana_1",
+      "text": "Smelled amazing in here. Couldn't help but go in and want to buy almost everything. My kids where craving donuts so got them each a chocolate donut. Didn't realize how big the size was. But they both enjoyed it and pretty much finished it. We where planning on going back to have some ice cream but didn't get the chance. Hopefully next time.",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_sloans_grand_cana_2",
+      "text": "Left without trying and i love sloans when i am in florida. All the flavors i was interested in showed freezer burn. I throw out the ice cream from my freezer when it has freezer burn. No way i pay premium for that.",
+      "rating": 3.0,
+      "user_archetype": "big_woman",
+      "tone": "enthusiastic"
+    }
+  ],
+  "https_www_yelp_com_biz_the_batchmaker_ch": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_the_batchmaker_ch_0",
+      "text": "The BEST bakery!! I got a snickerdoodle cupcake and Oreo cookie and WOW. Speechless. So good and so fresh. The employees are so kind and warm and friendly which really made my morning. The establishment itself is absolutely adorable, the best breakfast meetup for a date, friends, family, etc. it is so beautiful inside and has a bunch of great outdoor seating. Highly recommend coming here!!",
+      "rating": 5.0,
+      "user_archetype": "community",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_the_batchmaker_ch_1",
+      "text": "I'm absolutely obsessed with this spot! My friend brought me here on my last day visiting her in Charlotte, and I'm so glad she did! The service is AMAZING! The staff is super friendly, helpful and kind. Answered all my questions and were so patient when I couldn't decide between all their incredible desserts. My friend and I shared the millionaire cookie (chocolate chip, caramel) and their signature oatmeal cream pie. Both were decadent and insanely good. The aesthetic of this place is so quirk",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_the_batchmaker_ch_2",
+      "text": "Full disclaimer - I don't really like desserts and never order them at restaurant Another full disclaimer - I really like these cakes and I would order them at a restaurant We got the lemon blueberry cake which was probably about 10 inches high. The verticality of the cake was probably one of it's most stunning features. Had to remove a couple drawers in the fridge to make it fit but absolutely worth it. Also! We got the biscoff cheesecake. Usually my stance on this is...cake good, cheese great,",
+      "rating": 5.0,
+      "user_archetype": "haggler",
+      "tone": "casual_pidgin"
+    }
+  ],
+  "https_www_yelp_com_biz_honey_hut_ice_cre": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_honey_hut_ice_cre_0",
+      "text": "Quick atop at @honey_hut off State Rd Brooklyn/ Parma/Cleveland. Today's Flavor was Raspberry Chocolate Chip. Smooth and creamy. Ton of flavors to choose from. Vanilla their famous recipe made with locally-sourced Ohio honey. Chocolate -Creamy chocolate lightly sweetened with honey. Honey PecÃ¤n- their signature take on a butter pecan made with halved, roasted, salted locally-sourced pecans. Chocolate PecÃ¤n our creamy Chocolate ice cream with halved, roasted, salted locally-sourced pecans. Choc",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_honey_hut_ice_cre_1",
+      "text": "There's a reason Joe Biden visited Honey Hut. And I'm pretty sure it's because of their orange blossom ice cream, which tastes exactly like a creamsicle, but has better texture. I was visiting my daughter, who lives in Old Brooklyn, and it was a pleasant fifteen minute walk to Honey Hut, which is the a corner of a main street and a residential street. If I lived on that residential street, I'd be at Honey Hut every day. Maybe twice a day. As it was, I went back a second time before my visit ende",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "mixed"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_honey_hut_ice_cre_2",
+      "text": "Wanted something sweet on a trip home to ohio and this did the trick. Great, friendly customer service, accepts cash & card payments, different flavors of custard. Will definitely come again when I'm in the Euclid area and the sweet tooth hits.",
+      "rating": 4.0,
+      "user_archetype": "default",
+      "tone": "neutral"
+    }
+  ],
+  "https_www_yelp_com_biz_caff_C3_A9_bene_u": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_caff_C3_A9_bene_u_0",
+      "text": "I have no idea why this place is $$ when it really is $. Much better than Starbucks imo (i don't really care about the inspector situation because as long as they use boiling water to make their coffee I'm assuming they don't dip their hands in it afterwards). This place overshadows Starbucks as a casual hangout/study in a couple areas: 1. Much better lighting and study areas (more tables) - I'm sorry Starbucks but I absolutely hate your dimly lit areas for studying (for romantic coffee, may be ",
+      "rating": 5.0,
+      "user_archetype": "community",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_caff_C3_A9_bene_u_1",
+      "text": "The place has a feel I love but unfortunately I found out that they do not use real honeydew fruit in their smoothie and instead uses a powder which adds unnecessary and unhealthy ingredients. I won't be going back as a result.",
+      "rating": 3.0,
+      "user_archetype": "default",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_caff_C3_A9_bene_u_2",
+      "text": "My favorite place to study on campus. Great ambience, friendly staff, and extremely clean. After leaving campus, I have yet to find a cafe as good as Caffe Bene.",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "neutral"
+    }
+  ],
+  "https_www_yelp_com_biz_campbells_sweets_": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_campbells_sweets__0",
+      "text": "I lived in Chicago for 20 years, and now live in Chicago. I first went to the West Side Market when I saw Michael Simon talk about Chucrazj Meats on the Food Network. I started going to the West Side Market when in town to meet up with friends when we went fishing for walleye out of Lorain, or when I was driving through town on my way from Chicago to my hometown in Rochester NY. It was an absolute MUST! This is how I discovered Campbell's. They not only have a popcorn stand with some sweet treat",
+      "rating": 5.0,
+      "user_archetype": "community",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_campbells_sweets__1",
+      "text": "So many sweet treats to choose from, all at huge portions and reasonable prices. If you're like me, once you walk in, you'll be so dazzled and overwhelmed by the entire selection that you'll need a moment or two to collect yourself and process it all. There are shelves full of packaged and canned flavored popcorn along the walls, plus irresistible display cases of fresh items like cupcakes and chocolatey goods. I zeroed on items like the peanut butter cups and the sea salt caramel cups, which at",
+      "rating": 5.0,
+      "user_archetype": "haggler",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_campbells_sweets__2",
+      "text": "Really great pecans in the pecan crunch popcorn! The chocolate cupcake was nothing special- dry cake on bottom but pretty tasty chocolate frosting on top. The popcorn with the pecan crunch was fresh and soft and buttery sweet.",
+      "rating": 4.0,
+      "user_archetype": "default",
+      "tone": "mixed"
+    }
+  ],
+  "https_www_yelp_com_biz_cr_C3_AApes_de_lu": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_cr_C3_AApes_de_lu_0",
+      "text": "Wow--I didn't realize how poorly people thought of the service at this place. We came Sunday around 1pm for lunch and miraculously had no line ahead of us (one soon formed behind us). There was only one person managing the crepe stand and impressively juggled three crepe stations in addition to taking orders and payment (changing gloves each time he did so)--despite the business, he was polite, confirming our orders with us before he made them and acknowledged our thanks as we received our order",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_cr_C3_AApes_de_lu_1",
+      "text": "I got the Montreal crepe. I've been to Montreal and have had the smoked meat sandwiches there. The meat in this crepe tasted nothing like Montreal smoked meat. The meat was incredibly fatty which made my experience kind of sad. But the crepe itself was really good and I would imagine their sweet crepes are much better than their savory ones.",
+      "rating": 3.0,
+      "user_archetype": "default",
+      "tone": "mixed"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_cr_C3_AApes_de_lu_2",
+      "text": "first time going... and it won't be my last. i had one of the classic crepes here at the west side market, and it was such a nice treat to have on a cold day out! it was a nice size too for $6 !!",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "neutral"
+    }
+  ],
+  "https_www_yelp_com_biz_daily_scoop_in_me": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_daily_scoop_in_me_0",
+      "text": "Generous portions friendly service and great location. Great and everything, but this ice cream is incredible. We tried blue moon, iced latte with chocolate chunks, and cookies and cream. Wow",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_daily_scoop_in_me_1",
+      "text": "The ice cream tasted so-so, I don't see anything special. But for an ice cream place that sells by scoop, I think the $5+ for three scoops is a good deal. Some ice cream parlors we've tried sell a scoop for $5. Anyway, this covid, not a lot of people wear mask inside the restaurant. Probably just 2 families out 50 (masks not required by state at the moment though). The good thing is that there's ample nice space outdoors were you can eat! Even if the waterfront colorful tables are chairs are ful",
+      "rating": 4.0,
+      "user_archetype": "haggler",
+      "tone": "critical"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_daily_scoop_in_me_2",
+      "text": "Double Turtle- 2 scoops of ice cream topped with hot fudge, hot caramel, glazed pecans, whipped cream, & a cherry!!! It was heavenly. An outing at the Terrace is incomplete without Babcock ice cream. Yummy goodness in a bowl. Fabulous ice cream. My favorites are the orange custard chocolate chip, blue moon, mango sherbet and the blueberry swirl. Be patient and wait for the best ice cream. Worth the wait in line!!",
+      "rating": 5.0,
+      "user_archetype": "haggler",
+      "tone": "enthusiastic"
+    }
+  ],
+  "https_www_yelp_com_biz_day_and_night_exo": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_day_and_night_exo_0",
+      "text": "Hype little ice cream spot. Definitely a vibe, throwback cereal interior gives you that nostalgia. My friend got the bowl, Cosmo & Wanda--fruit loops and captain crunch all berries with almond milk and ice cream haha, she loaded up, that was actually legit though because the almond milk almost made it sweeter if you can imagine that. Perfect Combo I went with a shake and got Mucha Lucha it was the perfect little mix basically a hella sweet horchata milkshake, perfect cinnamon sugar balance. We b",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_day_and_night_exo_1",
+      "text": "Great idea! Cool space. Tasty shakes. I loved the cereal decor. It's a great unique idea for a place in a cool area of Uptown/ The staff was a little disengaged on the Friday night we visited. We watched them lock the doors 15 minutes before closing time and refuse any more service. It was a bit awkward being the last customers served that night and seeing others try to get in a locked door while we waited for our shakes",
+      "rating": 3.0,
+      "user_archetype": "default",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_day_and_night_exo_2",
+      "text": "I have been wanting to try this place for months now so I decided to try it one Friday night. I am not sure if that was a great idea being the line was out the door. The place is super small on the inside. They only were serving shakes no bowls. I was so determined to try this place I waited over 30 minutes in line. There were some people who waited out line but there were many that left because it was taking so long. There was only two people working inside. One on the register and one making s",
+      "rating": 4.0,
+      "user_archetype": "community",
+      "tone": "casual_pidgin"
+    }
+  ],
+  "https_www_yelp_com_biz_hopscotch_champai": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_hopscotch_champai_0",
+      "text": "Wow! Wowzers! Great Scott! Great Googoo Moogoo! Holy moly! Holy S@!#, Are you kidding me right now!? Hopscotch is absolutely incredible. The service, the baked goods (especially the cinnamon roll bread pudding), and the food (especially the Caprese Sandwich) are just unbelievable. Honestly, the only thing I can think of that would be better than the combination of those two things I mentioned would be like...free ice cream and never having to clean your apartment again. Do yourself a favor once ",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_hopscotch_champai_1",
+      "text": "Beautiful & cozy Cafe The pastries are yummy All the staff are so sweet, definitely would visit again",
+      "rating": 4.0,
+      "user_archetype": "default",
+      "tone": "neutral"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_hopscotch_champai_2",
+      "text": "Hopscotch bakery is such a delightful place to go when you need some pick-me-up goodies. I have tried their cupcakes, flourless chocolate cake (not pictured), and lemon bars! By far, I think their sliced chocolate cake is the BEST chocolate cake I have ever had in my life; I don't understand how the cake can be so soft and light when it is flourless. Their coffee is also fantastic. I would love to know what kind of coffee grounds they use, so I can make some at home! Their whole cake is also del",
+      "rating": 5.0,
+      "user_archetype": "haggler",
+      "tone": "enthusiastic"
+    }
+  ],
+  "https_www_yelp_com_biz_matcha_cafe_maiko": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_matcha_cafe_maiko_0",
+      "text": "I'm so happy this place opened nearby. The Matcha is well made and the girls at the counter are helpful with customer who's there for the first time. Looking forward to going back to try other items on the menu",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "neutral"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_matcha_cafe_maiko_1",
+      "text": "Visited here with a friend today- it was our first time trying matcha as a flavor and had heard great things so we were excited to try it out! The store had a very cute aesthetic- amazing decorations inside, very clean and a good amount of seating The individuals working the register were all very kind and allowed me to sample to matcha and toasted matcha flavor! I ordered a matcha and ube swirl cone and my friend ordered the Maiko special. Both came out quick and aesthetically were very pleasin",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_matcha_cafe_maiko_2",
+      "text": "Such a cute place! I love the ambiance and decor. Unfortunately I already bought a sweet drink in the area so I didn't get any ice cream here however the strawberry sandwich I ordered was yummy. I took a star off because it was super pricey and the bread was a little hard like it was left out too long. $4 for half a crust less sandwich with 1.5 strawberries and cream - it should've been made fresh.",
+      "rating": 4.0,
+      "user_archetype": "haggler",
+      "tone": "casual_pidgin"
+    }
+  ],
+  "https_www_yelp_com_biz_paris_super_crepe": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_paris_super_crepe_0",
+      "text": "I was in town for a business trip and stayed in the hotel nearby. It was hot and I wanted something cool and fresh. The moment I walked into the store, I was greeted immediately by a young lady behind the counter. Everything on the menu looks really good and I finally decided to go for Shrimp Avocado Crepe with the help of the young lady. Even though it was pretty busy, but I got my crepe in just a few minutes. The avocado is just right and the shrimp is crispy, the flavor is delicious. and the ",
+      "rating": 5.0,
+      "user_archetype": "community",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_paris_super_crepe_1",
+      "text": "Delicious dessert! Not quite like a French crepe but very tasty. We had the Super Crepe and the Chocolate Crepe. A bit of a wait for them to be made but worth it. Counter help fine but not super friendly, if you want a smile with your service.",
+      "rating": 4.0,
+      "user_archetype": "haggler",
+      "tone": "mixed"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_paris_super_crepe_2",
+      "text": "Milk tea had a familiar, proper black milk tea flavor but it was too sugary. Crepes held together, matcha ice cream and red bean had good flavor. Could use more red bean paste in the crepe. Crepe batter was basic but tasty. Service was good and there were a couple tables to sit down at. I would come back for their crepes and try the milk tea at half sugar.",
+      "rating": 4.0,
+      "user_archetype": "default",
+      "tone": "mixed"
+    }
+  ],
+  "https_www_yelp_com_biz_oberweis_ice_crea": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_oberweis_ice_crea_0",
+      "text": "Flew all the way from Las Vegas to Champaign for the Cononut Choc Almond ice cream. Just too good... I'll be back!",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "neutral"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_oberweis_ice_crea_1",
+      "text": "Wonderful, wonderful, wonderful! I ordered a brownie a la mode with the espresso chip ice cream, and it was absolutely fabulous! If I lived in Champaign, I would be back at least once a week! My son had chocolate ice cream in a sprinkle cone, and also loved it! What a nice treat to happen upon this delightful ice cream oasis in the parking lot of our hotel!",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_oberweis_ice_crea_2",
+      "text": "Oberweis is hands down my favorite ice cream place in town. Their ice cream is so creamy and flavorful. I have ordered the lemon blackberry twice, and I've enjoyed them both times. The sweetness of the blackberries pair well with the acid from the lemons. We also get our lemonade here. They have a program where each bottle of lemonade is only $2 when we return their empty glass bottle. This lemonade has got the right amount of tartness and is definitely refreshing during the hot summers. I absol",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "casual_pidgin"
+    }
+  ],
+  "https_www_yelp_com_biz_the_peach_cobbler": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_the_peach_cobbler_0",
+      "text": "I am a regular customer at the peach cobbler factory, and honestly it never misses. The peaches are always nice and fresh, and don't get me started on the praline !!! It takes it to a while new level. 10/10 would recommend.",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "neutral"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_the_peach_cobbler_1",
+      "text": "I had a sweet tooth after eating lunch at STIR. Just a heads up do not walk there - there is not a dine in option. Please drive your car because after you place your order you have to wait for it - then pick it up. You'll be eating in your car (which is not a bad thing) . Just a huge heads up!! I ordered the peach cobbler and cinnamon peach praline. It was $5 a piece on a special they had going on. It was yummy. Just a lot of cinnamon. Very sweet. The peach praline tasted just like the peach cob",
+      "rating": 4.0,
+      "user_archetype": "default",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_the_peach_cobbler_2",
+      "text": "Ignoring all the comments about the location (okay, weird). But as my daughter just said: \"I don't think I could make something this bad if I tried.\" We got the namesake peach cobbler. Where was the flavor? Where was the sweetness? Not in our little paper cup. And the ice cream? Is there a sugar shortage? Tasted like frozen milk. Love the idea, but concept fails here. Would also help if it wasn't just in this \"take out lobby/warehouse.\" Oh well, we tried. Better desserts await!",
+      "rating": 1.0,
+      "user_archetype": "default",
+      "tone": "casual_pidgin"
+    }
+  ],
+  "https_www_yelp_com_biz_churn_homemade_ic": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_churn_homemade_ic_0",
+      "text": "This place is soooo cute!!! I was actually walking to lunch when I saw this place and I had to go in and try their ice cream. Since it was a hot day, I decided to try their vanilla ice cream root beer float. The root beer hit just the spot - it was light, crisp, and refreshing. The ice cream was amazing too, as it held its form in the root beer and didn't melt too fast. The composition of the ice cream was interesting, as it had a stretch, which I thought was so cool. They have a lot of options ",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_churn_homemade_ic_1",
+      "text": "I didn't actually end up trying anything because I was really low on cash and try to avoid using my credit card in places I haven't been before. But they were nice and let me take a photo of the menu and let me know they actually make ice cream on site, next time I need to literally walk down to the FBI building and back, maybe I'll stop in for a treat afterwards.",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "mixed"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_churn_homemade_ic_2",
+      "text": "This is our first time here. If it wasn't for the hot pink and the weather being nice outside, we may have just kept walking. They have a handful of drinks from water to fruity to CBD drinks. Along with espressos, and lots of ice cream available. They have an assortment of different items like cigarette candy, loved that stuff as a kid. The staff was friendly and the ice cream was terrific. Too bad I can't have real ice cream. My daughter had the real ice cream.",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    }
+  ],
+  "https_www_yelp_com_biz_ice_cream_social_": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_ice_cream_social__0",
+      "text": "Cute little shop with very creative and thoughtful handmade flavors. The story behind the creation of the Ice Cream Social brand and it's positive contributions to the community makes it so much better. Well worth a visit!",
+      "rating": 5.0,
+      "user_archetype": "haggler",
+      "tone": "mixed"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_ice_cream_social__1",
+      "text": "Ice Cream Social is incredible! I started buying pints from Katrina during the pandemic - I've probably bought at least 20 so far. The flavors are unique and delicious. And the ice cream stays reasonably soft in the freezer, which is a huge bonus. My favorite thing to get at the shop is a flight so that I can try 3 different flavors, because it is hard to choose just one! I highly recommend getting waffle cone pieces as your topping. It's too hard to choose a favorite flavor! I don't like the on",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_ice_cream_social__2",
+      "text": "I've been a big fan of Ice Cream Social for the past year or so. Visiting the pop-up at local farmer's market and always bringing my dogs to get a pup cup! I'm so excited there is now a store! I tried the Song of Fire and Ice, Knotty or Nice and Monster Cookie Dough. Loved all 3, but the Knotty or Nice was a favorite! Winston and Potato enjoyed their time there as well!",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    }
+  ],
+  "https_www_yelp_com_biz_la_pasticceria_la": [
+    {
+      "review_id": "ref_https_www_yelp_com_biz_la_pasticceria_la_0",
+      "text": "YUMMY! After having lunch at another spot in Eataly, I was craving something sweet, so we ventured over to La Pastcceria. As an Italian girl myself, I had to try a cannoli, as it's my most favorite dessert. Now be warned, my Mom makes the BEST cannolis, so I am always skeptical when I try one at a restaurant or Italian style bakery, but these cannolis are delicious! I would've had another one, but I was already stuffed from lunch...lol! My husband who is not a cannoli fan had mini cream puffs, a",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "enthusiastic"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_la_pasticceria_la_1",
+      "text": "My friend strongly recommended La Pasticceria for the pastries, so I made my trip here to try those out. WOW. I forget how eye-pleasing it could be when checking out the pastries while waiting in line. I was very tempted to get all of them-but my wallet would cry if I did. For my first try, I decided to get Apricot Croissant and Nutella Croissant. I did not disappoint! Those were so good and I came back the next day to buy some before heading home. My roommate gladly accepted the untraditional s",
+      "rating": 4.0,
+      "user_archetype": "community",
+      "tone": "casual_pidgin"
+    },
+    {
+      "review_id": "ref_https_www_yelp_com_biz_la_pasticceria_la_2",
+      "text": "We dropped by because of Lavazza, but we're intrigued by La Pasticceria's beautiful desserts instead. When we were waiting in line/admiring the beautiful array of desserts, two Italian gentleman in front of us specifically requested the medium sized tiramisu, which could not be found in the case. When I ask them about it, they told me it's oh so good, it's dangerous. I don't know about you, but that kind of comment always makes me so curious that I gotta give it a try! We ended up getting a pass",
+      "rating": 5.0,
+      "user_archetype": "default",
+      "tone": "casual_pidgin"
+    }
+  ]
+}

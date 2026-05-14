@@ -1,0 +1,1193 @@
+[
+  {
+    "item_id": "sf_001",
+    "name": "Party Jollof Rice + Chicken",
+    "category": "street_food",
+    "price_naira": 2500,
+    "rating": 4.8,
+    "location": "Lagos",
+    "tags": [
+      "spicy",
+      "authentic",
+      "value",
+      "quick",
+      "lunch"
+    ],
+    "description": "Smokey firewood taste, seasoned chicken, spice kick.",
+    "review_count": 842,
+    "cross_domain_tags": [
+      "owambe",
+      "community",
+      "events"
+    ]
+  },
+  {
+    "item_id": "nw_010",
+    "name": "A Tribe Called Judah",
+    "category": "nollywood",
+    "price_naira": 2000,
+    "rating": 4.9,
+    "location": "Nigeria",
+    "tags": [
+      "family",
+      "comedy",
+      "action",
+      "masterpiece"
+    ],
+    "description": "A mother and her sons embark on a high-stakes heist. Emotional, funny, and deeply Nigerian.",
+    "review_count": 950,
+    "cross_domain_tags": [
+      "family",
+      "cinema",
+      "crime"
+    ]
+  },
+  {
+    "item_id": "el_012",
+    "name": "Starlink Standard Kit",
+    "category": "electronics",
+    "price_naira": 440000,
+    "rating": 4.7,
+    "location": "Nigeria",
+    "tags": [
+      "tech",
+      "internet",
+      "high-speed",
+      "rural"
+    ],
+    "description": "High-speed, low-latency broadband internet. Works even in the most remote villages.",
+    "review_count": 1200,
+    "cross_domain_tags": [
+      "work",
+      "remote",
+      "tech"
+    ]
+  },
+  {
+    "item_id": "fs_002",
+    "name": "Designer Aso Oke",
+    "category": "fashion",
+    "price_naira": 120000,
+    "rating": 4.9,
+    "location": "Lagos",
+    "tags": [
+      "luxury",
+      "traditional",
+      "wedding",
+      "prestige"
+    ],
+    "description": "Hand-woven premium Aso Oke with intricate gold threading. The peak of traditional elegance.",
+    "review_count": 150,
+    "cross_domain_tags": [
+      "owambe",
+      "prestige",
+      "culture"
+    ]
+  },
+  {
+    "item_id": "dn_003",
+    "name": "Yellow Chilli Seafood Okra",
+    "category": "dining",
+    "price_naira": 15500,
+    "rating": 4.8,
+    "location": "Lagos",
+    "tags": [
+      "seafood",
+      "luxury",
+      "authentic",
+      "gourmet"
+    ],
+    "description": "Rich seafood okra loaded with prawns, crabs, and fish. A gourmet take on a local classic.",
+    "review_count": 420,
+    "cross_domain_tags": [
+      "luxury",
+      "dining",
+      "seafood"
+    ]
+  },
+  {
+    "item_id": "wl_003",
+    "name": "Spa Day at Wheatbaker",
+    "category": "wellness",
+    "price_naira": 120000,
+    "rating": 4.9,
+    "location": "Lagos",
+    "tags": [
+      "luxury",
+      "relaxation",
+      "massage",
+      "premium"
+    ],
+    "description": "A full day of pampering including aromatherapy, massage, and pool access in Ikoyi.",
+    "review_count": 180,
+    "cross_domain_tags": [
+      "luxury",
+      "peace",
+      "wellness"
+    ]
+  },
+  {
+    "item_id": "ce_002",
+    "name": "Gidi Culture Festival",
+    "category": "community_events",
+    "price_naira": 15000,
+    "rating": 4.6,
+    "location": "Lagos",
+    "tags": [
+      "music",
+      "beach",
+      "party",
+      "youth"
+    ],
+    "description": "The biggest beach festival in Lagos. Afrobeats, art, and food by the Atlantic.",
+    "review_count": 3200,
+    "cross_domain_tags": [
+      "nightlife",
+      "music",
+      "youth"
+    ]
+  },
+  {
+    "item_id": "sf_016",
+    "name": "Isiewu Special",
+    "category": "street_food",
+    "price_naira": 6500,
+    "rating": 4.9,
+    "location": "Owerri",
+    "tags": [
+      "spicy",
+      "traditional",
+      "evening",
+      "classic"
+    ],
+    "description": "Authentic spicy goat head in thick palm oil sauce. Best served with Utazi leaves and cold drinks.",
+    "review_count": 310,
+    "cross_domain_tags": [
+      "culture",
+      "nightlife",
+      "drinks"
+    ]
+  },
+  {
+    "item_id": "el_007",
+    "name": "iPhone 15 Pro Max",
+    "category": "electronics",
+    "price_naira": 1400000,
+    "rating": 4.8,
+    "location": "Nigeria",
+    "tags": [
+      "luxury",
+      "tech",
+      "camera",
+      "status"
+    ],
+    "description": "Titanium design, professional camera system, and the fastest chip in a smartphone.",
+    "review_count": 2100,
+    "cross_domain_tags": [
+      "prestige",
+      "tech",
+      "social-media"
+    ]
+  },
+  {
+    "item_id": "ce_004",
+    "name": "Calabar Carnival Ticket",
+    "category": "community_events",
+    "price_naira": 25000,
+    "rating": 4.9,
+    "location": "Calabar",
+    "tags": [
+      "culture",
+      "parade",
+      "tourism",
+      "annual"
+    ],
+    "description": "Access to the 'Africa's Biggest Street Party'. Parades, costumes, and music in December.",
+    "review_count": 5000,
+    "cross_domain_tags": [
+      "travel",
+      "culture",
+      "events"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_sidney_dairy_barn",
+    "name": "Sidney Dairy Barn Sidney",
+    "category": "dining",
+    "price_naira": 57417.0,
+    "rating": 4.4,
+    "location": "Abuja",
+    "tags": [
+      "date",
+      "ambiance",
+      "weekend"
+    ],
+    "description": "Sidney Dairy Barn Sidney in Abuja. Dining spot rated 4.4 by 26 reviewers.",
+    "review_count": 26,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_rewind_ice_cream_",
+    "name": "Rewind Ice Cream Boba Tea Chandler 3",
+    "category": "dining",
+    "price_naira": 11119.0,
+    "rating": 4.3,
+    "location": "Kano",
+    "tags": [
+      "weekend",
+      "service",
+      "date"
+    ],
+    "description": "Rewind Ice Cream Boba Tea Chandler 3 in Kano. Dining spot rated 4.3 by 297 reviewers.",
+    "review_count": 297,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_carlos_bakery_las",
+    "name": "Carlos Bakery Las Vegas 3",
+    "category": "dining",
+    "price_naira": 59210.0,
+    "rating": 3.0,
+    "location": "Port Harcourt",
+    "tags": [
+      "weekend",
+      "special",
+      "fine dining"
+    ],
+    "description": "Carlos Bakery Las Vegas 3 in Port Harcourt. Dining spot rated 3.0 by 1290 reviewers.",
+    "review_count": 1290,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_the_vegan_doughnu",
+    "name": "The Vegan Doughnut Company Lakewood 3",
+    "category": "fashion",
+    "price_naira": 30617.0,
+    "rating": 4.8,
+    "location": "Ibadan",
+    "tags": [
+      "trending",
+      "native",
+      "designer"
+    ],
+    "description": "The Vegan Doughnut Company Lakewood 3 in Ibadan. Fashion spot rated 4.8 by 99 reviewers.",
+    "review_count": 99,
+    "cross_domain_tags": [
+      "owambe",
+      "trending",
+      "status"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_the_butterwood_ba",
+    "name": "The Butterwood Bake Consortium Pittsburgh",
+    "category": "dining",
+    "price_naira": 55332.0,
+    "rating": 4.3,
+    "location": "Abuja",
+    "tags": [
+      "fine dining",
+      "weekend",
+      "date"
+    ],
+    "description": "The Butterwood Bake Consortium Pittsburgh in Abuja. Dining spot rated 4.3 by 247 reviewers.",
+    "review_count": 247,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_handels_homemade_",
+    "name": "Handels Homemade Ice Cream And Yogurt Las Vegas 3",
+    "category": "dining",
+    "price_naira": 49910.0,
+    "rating": 4.3,
+    "location": "Port Harcourt",
+    "tags": [
+      "weekend",
+      "date",
+      "service"
+    ],
+    "description": "Handels Homemade Ice Cream And Yogurt Las Vegas 3 in Port Harcourt. Dining spot rated 4.3 by 683 reviewers.",
+    "review_count": 683,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_am_C3_A9lies_fren",
+    "name": "Am%C3%A9Lies French Bakery And Caf%C3%A9 Charlotte 11",
+    "category": "dining",
+    "price_naira": 45790.0,
+    "rating": 4.1,
+    "location": "Abuja",
+    "tags": [
+      "weekend",
+      "date",
+      "ambiance"
+    ],
+    "description": "Am%C3%A9Lies French Bakery And Caf%C3%A9 Charlotte 11 in Abuja. Dining spot rated 4.1 by 2042 reviewers.",
+    "review_count": 2042,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_bouchon_bakery_la",
+    "name": "Bouchon Bakery Las Vegas 10",
+    "category": "street_food",
+    "price_naira": 2430.0,
+    "rating": 4.0,
+    "location": "Enugu",
+    "tags": [
+      "spicy",
+      "authentic",
+      "value"
+    ],
+    "description": "Bouchon Bakery Las Vegas 10 in Enugu. Street Food spot rated 4.0 by 1386 reviewers.",
+    "review_count": 1386,
+    "cross_domain_tags": [
+      "owambe",
+      "community",
+      "quick"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_novel_ice_cream_p",
+    "name": "Novel Ice Cream Phoenix",
+    "category": "dining",
+    "price_naira": 15431.0,
+    "rating": 4.9,
+    "location": "Lagos",
+    "tags": [
+      "weekend",
+      "service",
+      "date"
+    ],
+    "description": "Novel Ice Cream Phoenix in Lagos. Dining spot rated 4.9 by 1016 reviewers.",
+    "review_count": 1016,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_sweet_republic_sc",
+    "name": "Sweet Republic Scottsdale 2",
+    "category": "dining",
+    "price_naira": 26044.0,
+    "rating": 4.4,
+    "location": "Abuja",
+    "tags": [
+      "special",
+      "date",
+      "weekend"
+    ],
+    "description": "Sweet Republic Scottsdale 2 in Abuja. Dining spot rated 4.4 by 899 reviewers.",
+    "review_count": 899,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_sprinkles_las_veg",
+    "name": "Sprinkles Las Vegas Las Vegas",
+    "category": "dining",
+    "price_naira": 50481.0,
+    "rating": 3.9,
+    "location": "Ibadan",
+    "tags": [
+      "ambiance",
+      "service",
+      "weekend"
+    ],
+    "description": "Sprinkles Las Vegas Las Vegas in Ibadan. Dining spot rated 3.9 by 965 reviewers.",
+    "review_count": 965,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_fatty_daddys_scot",
+    "name": "Fatty Daddys Scottsdale 5",
+    "category": "dining",
+    "price_naira": 49603.0,
+    "rating": 4.1,
+    "location": "Port Harcourt",
+    "tags": [
+      "date",
+      "weekend",
+      "special"
+    ],
+    "description": "Fatty Daddys Scottsdale 5 in Port Harcourt. Dining spot rated 4.1 by 589 reviewers.",
+    "review_count": 589,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_85_c_bakery_cafe_",
+    "name": "85 C Bakery Cafe Las Vegas 2",
+    "category": "dining",
+    "price_naira": 56281.0,
+    "rating": 3.7,
+    "location": "Kano",
+    "tags": [
+      "special",
+      "ambiance",
+      "service"
+    ],
+    "description": "85 C Bakery Cafe Las Vegas 2 in Kano. Dining spot rated 3.7 by 427 reviewers.",
+    "review_count": 427,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_melt_phoenix",
+    "name": "Melt Phoenix",
+    "category": "street_food",
+    "price_naira": 1311.0,
+    "rating": 4.0,
+    "location": "Ibadan",
+    "tags": [
+      "authentic",
+      "lunch",
+      "spicy"
+    ],
+    "description": "Melt Phoenix in Ibadan. Street Food spot rated 4.0 by 412 reviewers.",
+    "review_count": 412,
+    "cross_domain_tags": [
+      "owambe",
+      "community",
+      "quick"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_jack_frost_donuts",
+    "name": "Jack Frost Donuts Cleveland",
+    "category": "dining",
+    "price_naira": 18754.0,
+    "rating": 4.4,
+    "location": "Abuja",
+    "tags": [
+      "fine dining",
+      "date",
+      "special"
+    ],
+    "description": "Jack Frost Donuts Cleveland in Abuja. Dining spot rated 4.4 by 412 reviewers.",
+    "review_count": 412,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_jenis_splendid_ic",
+    "name": "Jenis Splendid Ice Creams Charlotte 2",
+    "category": "dining",
+    "price_naira": 24838.0,
+    "rating": 4.6,
+    "location": "Ibadan",
+    "tags": [
+      "weekend",
+      "date",
+      "special"
+    ],
+    "description": "Jenis Splendid Ice Creams Charlotte 2 in Ibadan. Dining spot rated 4.6 by 433 reviewers.",
+    "review_count": 433,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_mitchells_homemad",
+    "name": "Mitchells Homemade Ice Cream Cleveland Cleveland 2",
+    "category": "dining",
+    "price_naira": 9421.0,
+    "rating": 4.8,
+    "location": "Lagos",
+    "tags": [
+      "fine dining",
+      "ambiance",
+      "service"
+    ],
+    "description": "Mitchells Homemade Ice Cream Cleveland Cleveland 2 in Lagos. Dining spot rated 4.8 by 548 reviewers.",
+    "review_count": 548,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_prestis_bakery_cl",
+    "name": "Prestis Bakery Cleveland",
+    "category": "street_food",
+    "price_naira": 2907.0,
+    "rating": 4.0,
+    "location": "Lagos",
+    "tags": [
+      "quick",
+      "spicy",
+      "authentic"
+    ],
+    "description": "Prestis Bakery Cleveland in Lagos. Street Food spot rated 4.0 by 486 reviewers.",
+    "review_count": 486,
+    "cross_domain_tags": [
+      "owambe",
+      "community",
+      "quick"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_villanis_bakery_c",
+    "name": "Villanis Bakery Charlotte",
+    "category": "dining",
+    "price_naira": 31811.0,
+    "rating": 4.5,
+    "location": "Lagos",
+    "tags": [
+      "date",
+      "fine dining",
+      "service"
+    ],
+    "description": "Villanis Bakery Charlotte in Lagos. Dining spot rated 4.5 by 287 reviewers.",
+    "review_count": 287,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_batch_bakehouse_m",
+    "name": "Batch Bakehouse Madison",
+    "category": "dining",
+    "price_naira": 35584.0,
+    "rating": 4.6,
+    "location": "Lagos",
+    "tags": [
+      "fine dining",
+      "special",
+      "date"
+    ],
+    "description": "Batch Bakehouse Madison in Lagos. Dining spot rated 4.6 by 205 reviewers.",
+    "review_count": 205,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_chocolate_shoppe_",
+    "name": "Chocolate Shoppe Ice Cream Madison 2",
+    "category": "dining",
+    "price_naira": 33014.0,
+    "rating": 4.2,
+    "location": "Port Harcourt",
+    "tags": [
+      "fine dining",
+      "date",
+      "service"
+    ],
+    "description": "Chocolate Shoppe Ice Cream Madison 2 in Port Harcourt. Dining spot rated 4.2 by 157 reviewers.",
+    "review_count": 157,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_ghirardelli_ice_c",
+    "name": "Ghirardelli Ice Cream And Chocolate Shop Las Vegas 2",
+    "category": "dining",
+    "price_naira": 10020.0,
+    "rating": 3.8,
+    "location": "Kano",
+    "tags": [
+      "ambiance",
+      "service",
+      "fine dining"
+    ],
+    "description": "Ghirardelli Ice Cream And Chocolate Shop Las Vegas 2 in Kano. Dining spot rated 3.8 by 300 reviewers.",
+    "review_count": 300,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_milk_bar_las_vega",
+    "name": "Milk Bar Las Vegas Las Vegas 3",
+    "category": "dining",
+    "price_naira": 31812.0,
+    "rating": 3.5,
+    "location": "Ibadan",
+    "tags": [
+      "fine dining",
+      "service",
+      "ambiance"
+    ],
+    "description": "Milk Bar Las Vegas Las Vegas 3 in Ibadan. Dining spot rated 3.5 by 1333 reviewers.",
+    "review_count": 1333,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_jarlings_custard_",
+    "name": "Jarlings Custard Cup Champaign 4",
+    "category": "dining",
+    "price_naira": 11943.0,
+    "rating": 4.3,
+    "location": "Kano",
+    "tags": [
+      "special",
+      "weekend",
+      "ambiance"
+    ],
+    "description": "Jarlings Custard Cup Champaign 4 in Kano. Dining spot rated 4.3 by 300 reviewers.",
+    "review_count": 300,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_somisomi_las_vega",
+    "name": "Somisomi Las Vegas 5",
+    "category": "dining",
+    "price_naira": 31315.0,
+    "rating": 4.6,
+    "location": "Ibadan",
+    "tags": [
+      "date",
+      "ambiance",
+      "service"
+    ],
+    "description": "Somisomi Las Vegas 5 in Ibadan. Dining spot rated 4.6 by 114 reviewers.",
+    "review_count": 114,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_scooptopia_phoeni",
+    "name": "Scooptopia Phoenix",
+    "category": "dining",
+    "price_naira": 16159.0,
+    "rating": 4.8,
+    "location": "Kano",
+    "tags": [
+      "service",
+      "fine dining",
+      "date"
+    ],
+    "description": "Scooptopia Phoenix in Kano. Dining spot rated 4.8 by 188 reviewers.",
+    "review_count": 188,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_churn_phoenix_3",
+    "name": "Churn Phoenix 3",
+    "category": "fashion",
+    "price_naira": 33886.0,
+    "rating": 4.4,
+    "location": "Enugu",
+    "tags": [
+      "trending",
+      "status",
+      "native"
+    ],
+    "description": "Churn Phoenix 3 in Enugu. Fashion spot rated 4.4 by 1059 reviewers.",
+    "review_count": 1059,
+    "cross_domain_tags": [
+      "owambe",
+      "trending",
+      "status"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_donut_bar_las_veg",
+    "name": "Donut Bar Las Vegas",
+    "category": "dining",
+    "price_naira": 32556.0,
+    "rating": 4.3,
+    "location": "Enugu",
+    "tags": [
+      "date",
+      "weekend",
+      "ambiance"
+    ],
+    "description": "Donut Bar Las Vegas in Enugu. Dining spot rated 4.3 by 1280 reviewers.",
+    "review_count": 1280,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_masons_creamery_c",
+    "name": "Masons Creamery Cleveland",
+    "category": "dining",
+    "price_naira": 18580.0,
+    "rating": 4.6,
+    "location": "Enugu",
+    "tags": [
+      "fine dining",
+      "service",
+      "ambiance"
+    ],
+    "description": "Masons Creamery Cleveland in Enugu. Dining spot rated 4.6 by 332 reviewers.",
+    "review_count": 332,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_ninety_s_milkshak",
+    "name": "Ninety S Milkshake Bar Charlotte",
+    "category": "dining",
+    "price_naira": 8760.0,
+    "rating": 4.4,
+    "location": "Enugu",
+    "tags": [
+      "ambiance",
+      "special",
+      "service"
+    ],
+    "description": "Ninety S Milkshake Bar Charlotte in Enugu. Dining spot rated 4.4 by 320 reviewers.",
+    "review_count": 320,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_pages_pittsburgh",
+    "name": "Pages Pittsburgh",
+    "category": "dining",
+    "price_naira": 15229.0,
+    "rating": 4.7,
+    "location": "Abuja",
+    "tags": [
+      "weekend",
+      "service",
+      "ambiance"
+    ],
+    "description": "Pages Pittsburgh in Abuja. Dining spot rated 4.7 by 288 reviewers.",
+    "review_count": 288,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_mary_coyle_phoeni",
+    "name": "Mary Coyle Phoenix 2",
+    "category": "street_food",
+    "price_naira": 1386.0,
+    "rating": 4.2,
+    "location": "Kano",
+    "tags": [
+      "value",
+      "local",
+      "quick"
+    ],
+    "description": "Mary Coyle Phoenix 2 in Kano. Street Food spot rated 4.2 by 185 reviewers.",
+    "review_count": 185,
+    "cross_domain_tags": [
+      "owambe",
+      "community",
+      "quick"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_sinful_sweets_cho",
+    "name": "Sinful Sweets Chocolate Company Pittsburgh",
+    "category": "dining",
+    "price_naira": 18701.0,
+    "rating": 4.0,
+    "location": "Port Harcourt",
+    "tags": [
+      "ambiance",
+      "weekend",
+      "service"
+    ],
+    "description": "Sinful Sweets Chocolate Company Pittsburgh in Port Harcourt. Dining spot rated 4.0 by 144 reviewers.",
+    "review_count": 144,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_sloans_grand_cana",
+    "name": "Sloans Grand Canal Shoppes Las Vegas",
+    "category": "dining",
+    "price_naira": 43688.0,
+    "rating": 3.7,
+    "location": "Ibadan",
+    "tags": [
+      "service",
+      "special",
+      "date"
+    ],
+    "description": "Sloans Grand Canal Shoppes Las Vegas in Ibadan. Dining spot rated 3.7 by 159 reviewers.",
+    "review_count": 159,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_the_batchmaker_ch",
+    "name": "The Batchmaker Charlotte",
+    "category": "street_food",
+    "price_naira": 3633.0,
+    "rating": 4.8,
+    "location": "Kano",
+    "tags": [
+      "lunch",
+      "quick",
+      "local"
+    ],
+    "description": "The Batchmaker Charlotte in Kano. Street Food spot rated 4.8 by 102 reviewers.",
+    "review_count": 102,
+    "cross_domain_tags": [
+      "owambe",
+      "community",
+      "quick"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_honey_hut_ice_cre",
+    "name": "Honey Hut Ice Cream Cleveland",
+    "category": "street_food",
+    "price_naira": 3719.0,
+    "rating": 4.7,
+    "location": "Enugu",
+    "tags": [
+      "quick",
+      "authentic",
+      "value"
+    ],
+    "description": "Honey Hut Ice Cream Cleveland in Enugu. Street Food spot rated 4.7 by 131 reviewers.",
+    "review_count": 131,
+    "cross_domain_tags": [
+      "owambe",
+      "community",
+      "quick"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_caff_C3_A9_bene_u",
+    "name": "Caff%C3%A9 Bene Urbana 3",
+    "category": "street_food",
+    "price_naira": 2349.0,
+    "rating": 3.1,
+    "location": "Port Harcourt",
+    "tags": [
+      "local",
+      "lunch",
+      "authentic"
+    ],
+    "description": "Caff%C3%A9 Bene Urbana 3 in Port Harcourt. Street Food spot rated 3.1 by 71 reviewers.",
+    "review_count": 71,
+    "cross_domain_tags": [
+      "owambe",
+      "community",
+      "quick"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_campbells_sweets_",
+    "name": "Campbells Sweets Factory Cleveland",
+    "category": "nollywood",
+    "price_naira": 7828.0,
+    "rating": 4.5,
+    "location": "Ibadan",
+    "tags": [
+      "family",
+      "popcorn",
+      "movie night"
+    ],
+    "description": "Campbells Sweets Factory Cleveland in Ibadan. Nollywood spot rated 4.5 by 79 reviewers.",
+    "review_count": 79,
+    "cross_domain_tags": [
+      "movie night",
+      "family",
+      "weekend"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_cr_C3_AApes_de_lu",
+    "name": "Cr%C3%Aapes De Luxe Cleveland 2",
+    "category": "dining",
+    "price_naira": 12419.0,
+    "rating": 3.4,
+    "location": "Abuja",
+    "tags": [
+      "fine dining",
+      "weekend",
+      "date"
+    ],
+    "description": "Cr%C3%Aapes De Luxe Cleveland 2 in Abuja. Dining spot rated 3.4 by 85 reviewers.",
+    "review_count": 85,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_daily_scoop_in_me",
+    "name": "Daily Scoop In Memorial Union Madison",
+    "category": "dining",
+    "price_naira": 51770.0,
+    "rating": 4.3,
+    "location": "Abuja",
+    "tags": [
+      "weekend",
+      "ambiance",
+      "service"
+    ],
+    "description": "Daily Scoop In Memorial Union Madison in Abuja. Dining spot rated 4.3 by 67 reviewers.",
+    "review_count": 67,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_day_and_night_exo",
+    "name": "Day And Night Exotic Cereal Bar Charlotte",
+    "category": "street_food",
+    "price_naira": 1360.0,
+    "rating": 4.4,
+    "location": "Enugu",
+    "tags": [
+      "local",
+      "spicy",
+      "authentic"
+    ],
+    "description": "Day And Night Exotic Cereal Bar Charlotte in Enugu. Street Food spot rated 4.4 by 71 reviewers.",
+    "review_count": 71,
+    "cross_domain_tags": [
+      "owambe",
+      "community",
+      "quick"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_hopscotch_champai",
+    "name": "Hopscotch Champaign",
+    "category": "street_food",
+    "price_naira": 2246.0,
+    "rating": 3.8,
+    "location": "Abuja",
+    "tags": [
+      "lunch",
+      "value",
+      "local"
+    ],
+    "description": "Hopscotch Champaign in Abuja. Street Food spot rated 3.8 by 97 reviewers.",
+    "review_count": 97,
+    "cross_domain_tags": [
+      "owambe",
+      "community",
+      "quick"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_matcha_cafe_maiko",
+    "name": "Matcha Cafe Maiko Charlotte",
+    "category": "dining",
+    "price_naira": 52669.0,
+    "rating": 4.7,
+    "location": "Ibadan",
+    "tags": [
+      "fine dining",
+      "service",
+      "special"
+    ],
+    "description": "Matcha Cafe Maiko Charlotte in Ibadan. Dining spot rated 4.7 by 124 reviewers.",
+    "review_count": 124,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_paris_super_crepe",
+    "name": "Paris Super Crepes Champaign",
+    "category": "dining",
+    "price_naira": 39837.0,
+    "rating": 4.2,
+    "location": "Abuja",
+    "tags": [
+      "special",
+      "date",
+      "fine dining"
+    ],
+    "description": "Paris Super Crepes Champaign in Abuja. Dining spot rated 4.2 by 61 reviewers.",
+    "review_count": 61,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_oberweis_ice_crea",
+    "name": "Oberweis Ice Cream And Dairy Store Champaign",
+    "category": "dining",
+    "price_naira": 51402.0,
+    "rating": 3.9,
+    "location": "Lagos",
+    "tags": [
+      "ambiance",
+      "weekend",
+      "service"
+    ],
+    "description": "Oberweis Ice Cream And Dairy Store Champaign in Lagos. Dining spot rated 3.9 by 22 reviewers.",
+    "review_count": 22,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_the_peach_cobbler",
+    "name": "The Peach Cobbler Factory Charlotte",
+    "category": "dining",
+    "price_naira": 58054.0,
+    "rating": 3.5,
+    "location": "Kano",
+    "tags": [
+      "date",
+      "special",
+      "fine dining"
+    ],
+    "description": "The Peach Cobbler Factory Charlotte in Kano. Dining spot rated 3.5 by 13 reviewers.",
+    "review_count": 13,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_churn_homemade_ic",
+    "name": "Churn Homemade Ice Cream And Coffee Pittsburgh",
+    "category": "street_food",
+    "price_naira": 533.0,
+    "rating": 4.6,
+    "location": "Lagos",
+    "tags": [
+      "value",
+      "local",
+      "authentic"
+    ],
+    "description": "Churn Homemade Ice Cream And Coffee Pittsburgh in Lagos. Street Food spot rated 4.6 by 19 reviewers.",
+    "review_count": 19,
+    "cross_domain_tags": [
+      "owambe",
+      "community",
+      "quick"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_ice_cream_social_",
+    "name": "Ice Cream Social Madison",
+    "category": "community_events",
+    "price_naira": 13312.0,
+    "rating": 4.9,
+    "location": "Kano",
+    "tags": [
+      "culture",
+      "weekend",
+      "music"
+    ],
+    "description": "Ice Cream Social Madison in Kano. Community Events spot rated 4.9 by 26 reviewers.",
+    "review_count": 26,
+    "cross_domain_tags": [
+      "lagos",
+      "culture",
+      "fest"
+    ]
+  },
+  {
+    "item_id": "https_www_yelp_com_biz_la_pasticceria_la",
+    "name": "La Pasticceria Las Vegas",
+    "category": "dining",
+    "price_naira": 43067.0,
+    "rating": 4.4,
+    "location": "Ibadan",
+    "tags": [
+      "weekend",
+      "service",
+      "special"
+    ],
+    "description": "La Pasticceria Las Vegas in Ibadan. Dining spot rated 4.4 by 20 reviewers.",
+    "review_count": 20,
+    "cross_domain_tags": [
+      "date",
+      "business",
+      "special"
+    ]
+  }
+]

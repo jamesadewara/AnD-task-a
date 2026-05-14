@@ -256,7 +256,7 @@ Plan only. No hallucinated specs.
         # Inject few-shot examples from reference_reviews
         few_shot_examples = ""
         try:
-            from app.corpus.data.reference_reviews import REFERENCE_REVIEWS
+            from app.corpus.reference_reviews import REFERENCE_REVIEWS
             item_id = product.get("item_id", "sf_001")
             if item_id in REFERENCE_REVIEWS:
                 examples = REFERENCE_REVIEWS[item_id][:2]

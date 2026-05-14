@@ -13,9 +13,12 @@ CORPUS_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "../"))
 if CORPUS_PATH not in sys.path:
     sys.path.insert(0, CORPUS_PATH)
 
+# Set mock env var for Pydantic validation
+os.environ["OPENROUTER_API_KEYS"] = '["sk-or-v1-placeholder-for-tests"]'
+
 try:
-    from app.corpus.data.seed_items import SEED_ITEMS
-    from app.corpus.data.reference_reviews import REFERENCE_REVIEWS
+    from app.corpus.seed_items import SEED_ITEMS
+    from app.corpus.reference_reviews import REFERENCE_REVIEWS
     from app.core.config import settings
 except ImportError:
     print("Error: Could not import corpus data or settings. Ensure paths are correct.")
