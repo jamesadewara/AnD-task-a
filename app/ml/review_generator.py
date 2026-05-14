@@ -1,6 +1,61 @@
 import re
 from typing import List, Dict, Optional, Any
 from loguru import logger
+from app.core.logging import reasoning_ctx
+
+# Rating extraction function for RMSE calculation
+def extract_rating(generated_text: str, item_actual_rating: float = None) -> Dict[str, any]:
+    """
+    Extract predicted rating from generated review text for RMSE computation.
+    Looks for patterns like "4.5/5", "4 stars", "5.0 out of 5", etc.
+    """
+    text_lower = generated_text.lower()
+    patterns = [
+        r'\b([1-5](?:\.\d)?)\s*(?:\/|out of)\s*5',
+        r'\b([1-5](?:\.\d)?)\s*stars?\b',
+        r'rating[:\s]+([1-5](?:\.\d)?)',
+        r'(?:^|\s)([1-5](?:\.\d)?)\s*$',
+    ]
+    
+    predicted = None
+    pattern_found = None
+    for pattern in patterns:
+        match = re.search(pattern, text_lower)
+        if match:
+            try:
+                predicted = float(match.group(1))
+                pattern_found = pattern
+                break
+            except (ValueError, IndexError):
+                continue
+    
+    return {
+        "predicted_rating": predicted,
+        "actual_rating": item_actual_rating,
+        "extractable": predicted is not None,
+        "pattern_found": pattern_found,
+    }
+
+
+# Nigerian voice validation with marker scoring
+def validate_nigerian_voice(review_text: str, marker_list: List[str] = None) -> Dict[str, any]:
+    """Validate Nigerian voice quality by counting marker occurrences."""
+    if marker_list is None:
+        from app.core.config import settings
+        marker_list = settings.NIGERIAN_MARKERS or settings.ALL_MARKERS or []
+    
+    text_lower = review_text.lower()
+    found = [m for m in marker_list if m.lower() in text_lower]
+    voice_score = len(found) / max(len(marker_list), 1) if marker_list else 0.0
+    passes = len(found) >= 2 or voice_score > 0.3
+    
+    return {
+        "markers_found": found,
+        "marker_count": len(found),
+        "voice_score": round(voice_score, 3),
+        "passes": passes,
+    }
+
 
 def detect_markers(text: str, persona: dict = None) -> List[str]:
     from app.core.config import settings
@@ -36,10 +91,25 @@ def extract_user_markers(persona: dict) -> List[str]:
         return settings.ARCHETYPE_FALLBACK_MARKERS.get("default", ["abeg", "omo"])
 
     return found
-
+    
 class ReviewAgent:
     def __init__(self):
-        pass
+        self.reasoning_steps = []
+
+    def _log(self, msg: str, step: str = "agent", action: str = "internal_logic", level: str = "INFO"):
+        """Log to loguru and capture as a reasoning step."""
+        if level == "INFO":
+            logger.info(f"[{step}] {msg}")
+        elif level == "WARNING":
+            logger.warning(f"[{step}] {msg}")
+        elif level == "ERROR":
+            logger.error(f"[{step}] {msg}")
+            
+        self.reasoning_steps.append({
+            "step": step,
+            "action": action,
+            "output": msg
+        })
 
     def _validate_rating_alignment(self, review_text: str, rating: float) -> bool:
         """Heuristic: ensure sentiment polarity in review text matches the numeric rating."""
@@ -76,7 +146,7 @@ class ReviewAgent:
         )
 
     async def step_1_retrieve(self, product: dict, persona: dict) -> Dict[str, str]:
-        logger.info(f"[ReviewAgent] Step 1: Retrieving context for {product.get('name', 'string')}")
+        self._log(f"Retrieving context for {product.get('name', 'string')}", step="retrieve", action="Fetch History")
         past_reviews = persona.get("past_reviews", [])
         if past_reviews:
             output = f"{len(past_reviews)} past reviews found. Read and incorporated."
@@ -89,7 +159,7 @@ class ReviewAgent:
         }
 
     async def step_2_analyze(self, product: dict, persona: dict) -> Dict[str, str]:
-        logger.info("[ReviewAgent] Step 2: Analyzing product against user archetype")
+        self._log("Analyzing product against user archetype", step="reason", action="Analyze Archetype")
         product_name = product.get('name', 'string')
         desc_status = "empty" if not product.get('description') else "provided"
         output = f"Tone: {persona.get('tone', 'neutral')}. Nigerian context: {persona.get('nigerian_context', True)}. Product name: '{product_name}'. Description: {desc_status}."
@@ -101,7 +171,7 @@ class ReviewAgent:
 
     async def step_3_reason(self, product: dict, persona: dict, on_fallback=None) -> str:
         """Internal Reasoning Plan (LLM)"""
-        logger.info("[ReviewAgent] Step 3: Generating reasoning plan")
+        self._log("Generating reasoning plan", step="reason", action="LLM Reasoning")
         
         prompt = f"""
 Plan a review for {product['name']} ({product['category']}):
@@ -131,7 +201,7 @@ Plan only. No hallucinated specs.
 
     async def step_4_generate(self, product: dict, persona: dict, plan: str, rating_constraint: float = None, on_fallback=None) -> str:
         """Generate the review draft with strict economic and rating constraints."""
-        logger.info("[ReviewAgent] Step 4: Generating review draft")
+        self._log("Generating review draft", step="generate", action="LLM Completion")
         
         price = product.get("price", 0.0)
         budget = persona.get("budget", 0.0)
@@ -183,6 +253,19 @@ Plan only. No hallucinated specs.
 
         user_markers = extract_user_markers(persona)
 
+        # Inject few-shot examples from reference_reviews
+        few_shot_examples = ""
+        try:
+            from app.corpus.data.reference_reviews import REFERENCE_REVIEWS
+            item_id = product.get("item_id", "sf_001")
+            if item_id in REFERENCE_REVIEWS:
+                examples = REFERENCE_REVIEWS[item_id][:2]
+                few_shot_examples = "\n\nREAL NIGERIAN REVIEWS FOR REFERENCE:\n"
+                for ex in examples:
+                    few_shot_examples += f'- Rating: {ex.get("rating")}/5 | "{ex.get("text", "")}"\n'
+        except (ImportError, KeyError):
+            pass
+
         prompt = f"""
 Write a {rating_constraint}/5 review in {persona.get('tone')} Nigerian voice. 2-4 sentences.
 
@@ -193,6 +276,7 @@ Price: ₦{price} | Budget: ₦{budget}
 Persona: {archetype} | Context: {persona.get('nigerian_context')}
 
 STYLE: Use 2+ of these phrases: {user_markers}
+{few_shot_examples}
 
 CONSTRAINTS:
 {economic_constraint}
@@ -222,7 +306,7 @@ RULES:
 
     async def step_5_reflect(self, draft: str, persona: dict, on_fallback=None) -> str:
         """Critique and revise for authenticity and adherence to constraints."""
-        logger.info("[ReviewAgent] Step 5: Reflecting for authenticity")
+        self._log("Reflecting for authenticity", step="reflect", action="LLM Self-Critique")
         
         if not draft.strip():
             return ""
@@ -247,6 +331,17 @@ Return revised text only. No meta-commentary.
         """Streaming agentic workflow that yields steps as they occur."""
         from app.ml.rating_predictor import RatingPredictor
         
+        # Initialize context-local reasoning list for log capture
+        local_logs = []
+        token = reasoning_ctx.set(local_logs)
+        
+        last_log_idx = 0
+        def get_new_logs():
+            nonlocal last_log_idx
+            new_logs = local_logs[last_log_idx:]
+            last_log_idx = len(local_logs)
+            return new_logs
+
         fallbacks = []
         async def fallback_notifier(failed, next_mod, err):
             fallbacks.append(f"⚠️ Model {failed.split('/')[-1]} rate-limited. Trying {next_mod.split('/')[-1]}...")
@@ -288,6 +383,10 @@ Return revised text only. No meta-commentary.
         for f in fallbacks:
             yield {"event": "reasoning", "data": {"step": "fallback", "action": "LLM Rotation", "output": f}}
         fallbacks = []
+        
+        # Flush logs after each major step
+        for log in get_new_logs():
+            yield {"event": "reasoning", "data": log}
 
         if not final_review.strip():
             final_review = self._emergency_fallback_review(product, persona)
@@ -312,7 +411,15 @@ Return revised text only. No meta-commentary.
             "used_nigerian_markers": detected,
             "sentence_count": len([s for s in re.split(r'(?<!\d)[.!?]+(?!\d)', final_review) if s.strip()])
         }
+        
+        # Flush any remaining logs before finishing
+        for log in get_new_logs():
+            yield {"event": "reasoning", "data": log}
+            
         yield {"event": "final_result", "data": final_result}
+        
+        # Reset context
+        reasoning_ctx.reset(token)
 
     async def generate_stateless(self, persona: dict, product: dict) -> dict:
         """Full structured agentic workflow with probabilistic rating model."""
@@ -320,6 +427,10 @@ Return revised text only. No meta-commentary.
         
         # Build reasoning chain in Python
         reasoning_chain = []
+        
+        # Set up context-local log capture for this request
+        local_logs = []
+        token = reasoning_ctx.set(local_logs)
         
         # Step 1 & 2 (Metadata/Context)
         step1 = await self.step_1_retrieve(product, persona)
@@ -372,9 +483,15 @@ Return revised text only. No meta-commentary.
         validated_markers = [m for m in detected if m.lower() in final_review.lower()]
         archetype_label = persona.get("archetype") or "default_consumer"
 
+        # Nigerian voice validation with scoring
+        voice_validation = validate_nigerian_voice(final_review, detected)
+        
+        # Rating extraction for RMSE
+        rating_extraction = extract_rating(final_review, sampled_rating)
+
         # Fix 2: threshold-based adaptation_reason
         if not validated_markers or len(validated_markers) <= 1:
-            adaptation_reason = f"Formal archetype '{archetype_label}' \u2014 minimal Pidgin markers for polished tone. Tone: {persona.get('tone')}."
+            adaptation_reason = f"Formal archetype '{archetype_label}' — minimal Pidgin markers for polished tone. Tone: {persona.get('tone')}."
         else:
             adaptation_reason = f"Injected user's signature markers: {validated_markers}"
 
@@ -388,7 +505,29 @@ Return revised text only. No meta-commentary.
                 f"Validation: {'PASSED' if validation_passed else 'FAILED (used fallback)'}. "
                 f"Review length: {len(final_review)} chars. "
                 f"Rating-text alignment: {'Consistent' if abs(sampled_rating - sentiment_estimate) < 1.5 else 'Check'}. "
-                f"Marker count: {len(validated_markers)}."
+                f"Marker count: {len(validated_markers)}. "
+                f"Voice score: {voice_validation['voice_score']} (pass: {voice_validation['passes']})."
+            )
+        })
+        
+        # Log rating extraction for evaluation
+        reasoning_chain.append({
+            "step": "extract_rating",
+            "action": "Extracted predicted rating from generated text",
+            "output": (
+                f"Predicted rating: {rating_extraction['predicted_rating']}. "
+                f"Extractable: {rating_extraction['extractable']}."
+            )
+        })
+        
+        # Log voice validation for solution paper
+        reasoning_chain.append({
+            "step": "validate_voice",
+            "action": "Validated Nigerian voice quality",
+            "output": (
+                f"Markers found: {voice_validation['marker_count']} (threshold: 2). "
+                f"Voice score: {voice_validation['voice_score']}. "
+                f"Pass: {voice_validation['passes']}."
             )
         })
 
@@ -398,17 +537,103 @@ Return revised text only. No meta-commentary.
             "action": "Applied style fingerprint and Nigerian markers",
             "output": adaptation_reason
         })
-
         reasoning_chain.append({
             "step": "generate",
             "action": "Finalized review draft",
-            "output": f"Draft length: {len(final_review)} chars. Rating constraint: {sampled_rating} stars enforced."
+            "output": f"Finalized review draft. Draft length: {len(final_review)} chars. Rating constraint: {sampled_rating} stars enforced."
         })
+        
+        # Merge captured loguru logs into the reasoning chain
+        reasoning_chain.extend(local_logs)
+        
+        # Clean up context
+        reasoning_ctx.reset(token)
         
         return {
             "review_text": final_review,
             "predicted_rating": sampled_rating,
             "reasoning_chain": reasoning_chain,
             "used_nigerian_markers": detected,
-            "sentence_count": len([s for s in re.split(r'(?<!\d)[.!?]+(?!\d)', final_review) if s.strip()])
+            "sentence_count": len([s for s in re.split(r'(?<!\d)[.!?]+(?!\d)', final_review) if s.strip()]),
+            # Add validation scores for evaluation
+            "voice_validation": voice_validation,
+            "rating_extraction": rating_extraction
         }
+
+    async def generate_stateless_flexible(self, payload: Any) -> dict:
+        """Accept flexible input (dict or string) and generate a review."""
+        from app.ml.rating_predictor import RatingPredictor
+        from app.core.config import settings
+        
+        # Extract persona and product from flexible payload
+        if isinstance(payload, dict):
+            persona = payload.get("user_persona", {})
+            product = payload.get("product", {})
+        else:
+            # Fallback: treat as description text
+            persona = {"name": "User", "archetype": "default_consumer", "tone": "neutral", "budget": settings.DEFAULT_USER_BUDGET, "nigerian_context": True}
+            product = {"name": "Product", "category": "General", "description": str(payload), "price": 0.0}
+        
+        # Apply defaults for missing fields
+        if not isinstance(persona, dict):
+            persona = {}
+        if not isinstance(product, dict):
+            product = {}
+        
+        persona.setdefault("name", "User")
+        persona.setdefault("archetype", "default_consumer")
+        persona.setdefault("tone", "neutral")
+        persona.setdefault("budget", settings.DEFAULT_USER_BUDGET)
+        persona.setdefault("nigerian_context", True)
+        persona.setdefault("price_sensitivity", "medium")
+        persona.setdefault("traits", [])
+        persona.setdefault("interests", [])
+        persona.setdefault("past_reviews", [])
+        persona.setdefault("style_sample", "")
+        
+        product.setdefault("name", "Product")
+        product.setdefault("category", "General")
+        product.setdefault("description", str(payload))
+        product.setdefault("price", 0.0)
+        product.setdefault("image_url", None)
+        
+        return await self.generate_stateless(persona, product)
+
+    async def generate_streaming_flexible(self, payload: Any):
+        """Accept flexible input and stream reasoning steps."""
+        from app.core.config import settings
+        
+        # Extract persona and product from flexible payload
+        if isinstance(payload, dict):
+            persona = payload.get("user_persona", {})
+            product = payload.get("product", {})
+        else:
+            # Fallback: treat as description text
+            persona = {"name": "User", "archetype": "default_consumer", "tone": "neutral", "budget": settings.DEFAULT_USER_BUDGET, "nigerian_context": True}
+            product = {"name": "Product", "category": "General", "description": str(payload), "price": 0.0}
+        
+        # Apply defaults for missing fields
+        if not isinstance(persona, dict):
+            persona = {}
+        if not isinstance(product, dict):
+            product = {}
+        
+        persona.setdefault("name", "User")
+        persona.setdefault("archetype", "default_consumer")
+        persona.setdefault("tone", "neutral")
+        persona.setdefault("budget", settings.DEFAULT_USER_BUDGET)
+        persona.setdefault("nigerian_context", True)
+        persona.setdefault("price_sensitivity", "medium")
+        persona.setdefault("traits", [])
+        persona.setdefault("interests", [])
+        persona.setdefault("past_reviews", [])
+        persona.setdefault("style_sample", "")
+        
+        product.setdefault("name", "Product")
+        product.setdefault("category", "General")
+        product.setdefault("description", str(payload))
+        product.setdefault("price", 0.0)
+        product.setdefault("image_url", None)
+        
+        async for event in self.generate_streaming(persona, product):
+            yield event

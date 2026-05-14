@@ -1,99 +1,94 @@
 from fastapi import APIRouter, HTTPException
+from fastapi.requests import Request
 from loguru import logger
-from app.models.reviews import ReviewGenerateRequest, UserPersona, ProductDetails
+import traceback
 from app.ml.review_generator import ReviewAgent, detect_markers
 from app.ml.rating_predictor import RatingPredictor
 from app.schemas.responses import ReviewResponse, ErrorResponse, StyleSnapshot, ReasoningStep
+from fastapi.responses import StreamingResponse
 
 router = APIRouter()
 
-
-from fastapi.responses import StreamingResponse
 import json
-import asyncio
-
-@router.post(
-    "/generate/stream",
-    summary="Generate personalized review with SSE streaming",
-    description="Streams reasoning steps and the final result as SSE events."
-)
-async def generate_review_stream(request: ReviewGenerateRequest):
-    agent = ReviewAgent()
-    
-    async def event_generator():
-        try:
-            async for event in agent.generate_streaming(request.user_persona.model_dump(), request.product.model_dump()):
-                yield f"event: {event['event']}\ndata: {json.dumps(event['data'])}\n\n"
-        except Exception as e:
-            logger.error(f"Streaming error: {e}")
-            yield f"event: error\ndata: {json.dumps({'detail': str(e)})}\n\n"
-
-    return StreamingResponse(event_generator(), media_type="text/event-stream")
 
 @router.post(
     "/generate",
     response_model=ReviewResponse,
     responses={400: {"model": ErrorResponse}, 422: {"model": ErrorResponse}},
     summary="Generate personalized review (Stateless)",
-    description="Stateless endpoint for hackathon judges. Takes user persona and product details, generates a review in the user's voice with visible reasoning."
+    description="Accepts any input format/prompt and returns structured review response."
 )
-async def generate_review(request: ReviewGenerateRequest):
-    persona = request.user_persona
-    product = request.product
+async def generate_review(request: Request):
+    """Accept any input format and return structured ReviewResponse."""
+    try:
+        body = await request.json()
+    except Exception as e:
+        # If JSON parse fails, treat entire body as a message
+        body = await request.body()
+        body = {"message": body.decode() if isinstance(body, bytes) else str(body)}
+    
+    logger.info(f"Generating review from input: {str(body)[:100]}...")
 
-    # FIX 1: Validate Product Input (Prevent Hallucination)
-    if product.name.lower() in ["string", "", "product name"]:
-        # If name is a placeholder, we proceed but the agent will handle it cautiously
-        # unless description is also empty, then we reject.
-        if not product.description or product.description.lower() == "string":
-            raise HTTPException(
-                status_code=400,
-                detail="Product requires valid name or description. Received placeholder data."
-            )
+    try:
+        agent = ReviewAgent()
+        result = await agent.generate_stateless_flexible(body)
+        
+        review_text = result["review_text"]
+        reasoning_chain_data = result["reasoning_chain"]
+        
+        # Convert dicts to ReasoningStep models
+        reasoning_chain = [ReasoningStep(**step) for step in reasoning_chain_data]
 
-    logger.info(f"Generating review for product: {product.name}")
+        predictor = RatingPredictor()
+        rating = predictor.predict_flexible(review_text, body)
+
+        # Default confidence
+        confidence = 0.85
+        
+        # Populate Style Snapshot
+        markers = detect_markers(review_text, body) if isinstance(body, dict) else []
+        archetype_label = body.get("archetype", "default_consumer") if isinstance(body, dict) else "default_consumer"
+        adaptation_reason = f"Review generated from input. Applied markers: {markers}" if markers else "Standard review generation."
+        
+        style_snapshot = StyleSnapshot(
+            inferred_tone=body.get("tone", "neutral") if isinstance(body, dict) else "neutral",
+            inferred_archetype=archetype_label,
+            applied_markers=markers,
+            adaptation_reason=adaptation_reason
+        )
+
+        return ReviewResponse(
+            review_text=review_text,
+            predicted_rating=rating,
+            reasoning_chain=reasoning_chain,
+            confidence=confidence,
+            style_snapshot=style_snapshot,
+            image_url=body.get("image_url") if isinstance(body, dict) else None,
+            used_nigerian_markers=markers,
+            sentence_count=result.get("sentence_count", 0)
+        )
+    except Exception as e:
+        logger.error(f"Review generation failed: {e}")
+        logger.error(traceback.format_exc())
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.post("/stream")
+async def stream_review(request: Request):
+    """Stream reasoning steps and final review result."""
+    try:
+        body = await request.json()
+    except:
+        body = await request.body()
+        body = {"message": body.decode() if isinstance(body, bytes) else str(body)}
 
     agent = ReviewAgent()
-    gen_result = await agent.generate_stateless(persona.model_dump(), product.model_dump())
     
-    review_text = gen_result["review_text"]
-    reasoning_chain_data = gen_result["reasoning_chain"]
-    
-    # Convert dicts to ReasoningStep models
-    reasoning_chain = [ReasoningStep(**step) for step in reasoning_chain_data]
+    async def event_generator():
+        try:
+            async for event in agent.generate_streaming_flexible(body):
+                yield f"data: {json.dumps(event)}\n\n"
+        except Exception as e:
+            logger.error(f"Stream failed: {e}")
+            yield f"data: {json.dumps({'event': 'error', 'data': str(e)})}\n\n"
 
-    predictor = RatingPredictor()
-    product_desc = f"{product.name} {product.description}"
-    rating = predictor.predict(product_desc, review_text, persona.model_dump(), product.model_dump())
-
-    # Confidence logic
-    confidence = 0.85
-    if not product.description or product.name.lower() == "string":
-        confidence = 0.60  # Drop confidence for placeholder/minimal data
-    elif persona.style_sample:
-        confidence = 0.92
- 
-    # Populate Style Snapshot
-    markers = detect_markers(review_text, persona.model_dump())
-    archetype_label = persona.archetype or "default_consumer"
-    if not markers or len(markers) <= 1:
-        adaptation_reason = f"Formal archetype '{archetype_label}' — minimal Pidgin markers for polished tone. Tone: {persona.tone or 'neutral'}."
-    else:
-        adaptation_reason = f"Injected user's signature markers: {markers}"
-    style_snapshot = StyleSnapshot(
-        inferred_tone=persona.tone or "neutral",
-        inferred_archetype=archetype_label,
-        applied_markers=markers,
-        adaptation_reason=adaptation_reason
-    )
-
-    return ReviewResponse(
-        review_text=review_text,
-        predicted_rating=rating,
-        reasoning_chain=reasoning_chain,
-        confidence=confidence,
-        style_snapshot=style_snapshot,
-        image_url=product.image_url,
-        used_nigerian_markers=markers,
-        sentence_count=gen_result.get("sentence_count", 0)
-    )
+    return StreamingResponse(event_generator(), media_type="text/event-stream")

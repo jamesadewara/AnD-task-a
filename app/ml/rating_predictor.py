@@ -146,3 +146,28 @@ class RatingPredictor:
         
         res = self.predict_probabilistic(persona, product)
         return res["rating"]
+
+    def predict_flexible(self, review_text: str, payload: dict) -> float:
+        """Accept flexible payload and predict rating from review text."""
+        from app.core.config import settings
+        
+        persona = payload.get("user_persona", {}) if isinstance(payload, dict) else {}
+        product = payload.get("product", {}) if isinstance(payload, dict) else {}
+        
+        # Apply defaults
+        if not isinstance(persona, dict):
+            persona = {}
+        if not isinstance(product, dict):
+            product = {}
+        
+        persona.setdefault("archetype", "default_consumer")
+        persona.setdefault("budget", settings.DEFAULT_USER_BUDGET)
+        persona.setdefault("price_sensitivity", "medium")
+        persona.setdefault("past_reviews", [])
+        
+        product.setdefault("description", str(payload))
+        product.setdefault("name", "Product")
+        
+        # Use probabilistic model
+        res = self.predict_probabilistic(persona, product)
+        return res["rating"]

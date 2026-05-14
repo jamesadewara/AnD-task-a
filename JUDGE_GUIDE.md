@@ -39,7 +39,7 @@ Expected:
 ## Test 1: The Lagos Haggler (Price Shock)
 
 **Validates:** price extraction → shock → low rating → outraged text
-
+inputs can be flexible or structured (e.g. text or json)
 ```bash
 curl -X POST http://localhost:8000/api/v1/reviews/generate \
   -H "Content-Type: application/json" \
@@ -189,7 +189,7 @@ curl -X POST http://localhost:8000/api/v1/reviews/generate \
 | Requirement | Implementation |
 |---|---|
 | Stateless | No DB, no sessions — all context passed in request |
-| OpenRouter Only | `litellm` proxied via `OPENROUTER_API_KEY` |
+| OpenRouter Only | `OPENROUTER` proxied via `OPENROUTER_API_KEY` |
 | No Datasets | Zero FAISS/vector DBs — reasoning over context only |
 | Visible Reasoning | `reasoning_chain` array with 6+ structured steps |
 | Probabilistic Rating | `RatingPredictor` uses `random.Random(seed)`, price shock, archetype |

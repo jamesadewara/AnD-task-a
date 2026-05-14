@@ -5,7 +5,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     APP_NAME: str = "AnD-ai-review-generator"
     DEBUG: bool = True
-    CORS_ALLOWED_ORIGINS: Union[list[str], str] = ["http://localhost:3000"]
+    CORS_ALLOWED_ORIGINS: Union[list[str], str] = ["http://localhost:3000", "http://127.0.0.1:3000"]
 
     @field_validator("CORS_ALLOWED_ORIGINS", mode="before")
     @classmethod
@@ -30,13 +30,17 @@ class Settings(BaseSettings):
             return v
         return []
 
-    LITELLM_MODEL_PRIMARY: str = "z-ai/glm-4.5-air:free"
-    LITELLM_FALLBACK_MODELS: list[str] = [
+    MODEL_PRIMARY: str = "z-ai/glm-4.5-air:free"
+    FALLBACK_MODELS: list[str] = [
         "nvidia/nemotron-3-nano-30b-a3b:free",
-        "google/gemma-4-31b-it:free"
+        "google/gemma-4-31b-it:free",
+        "z-ai/glm-4.5-air:free"
     ]
 
     MAX_TOKENS: int = 1024
+
+    # Default budget for cold-start scenarios (Nigerian Naira)
+    DEFAULT_USER_BUDGET: float = 0
 
     NIGERIAN_MARKERS: list[str] = [
         # Core pidgin verbs/particles
