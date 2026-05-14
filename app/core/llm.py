@@ -140,9 +140,9 @@ class LLMService:
                 )
                 return response.choices[0].message.content or ""
 
-        # Enforce a 20-second timeout per attempt to prevent hanging
+        # Enforce a 60-second timeout per attempt to prevent hanging
         try:
-            return await asyncio.wait_for(_do_call(), timeout=20.0)
+            return await asyncio.wait_for(_do_call(), timeout=60.0)
         except asyncio.TimeoutError:
             logger.error(f"LLM Timeout for model {model}")
             raise Exception(f"Timeout (20s) exceeded for {model}")
