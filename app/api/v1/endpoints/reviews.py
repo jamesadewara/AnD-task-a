@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from loguru import logger
-from app.model.reviews import ReviewGenerateRequest, UserPersona, ProductDetails
+from app.models.reviews import ReviewGenerateRequest, UserPersona, ProductDetails
 from app.ml.review_generator import ReviewAgent, detect_markers
 from app.ml.rating_predictor import RatingPredictor
 from app.schemas.responses import ReviewResponse, ErrorResponse, StyleSnapshot, ReasoningStep

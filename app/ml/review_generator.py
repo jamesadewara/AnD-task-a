@@ -104,18 +104,18 @@ class ReviewAgent:
         logger.info("[ReviewAgent] Step 3: Generating reasoning plan")
         
         prompt = f"""
-        Act as a product reviewer. Plan a review for:
-        Product Name: {product['name']}
-        Category: {product['category']}
-        Description: {product.get('description', 'No description provided.')}
-        
-        Think step-by-step:
-        1. How should a user with tone '{persona.get('tone')}' react to this?
-        2. Which features (ONLY from description) should be highlighted?
-        3. How to inject Nigerian cultural nuances naturally if context is enabled?
-        
-        Output a 3-point plan. Do NOT hallucinate features.
-        """
+Plan a review for {product['name']} ({product['category']}):
+
+Product: {product.get('description', 'No description provided.')}
+User: {persona.get('tone')} tone, budget ₦{persona.get('budget', 0)}
+Context: {persona.get('nigerian_context', False)}
+
+1. How should {persona.get('tone')} user react?
+2. Which features (description only) to highlight?
+3. How to inject Nigerian nuances if enabled?
+
+Plan only. No hallucinated specs.
+"""
         messages = [{"role": "user", "content": prompt}]
         return await self._call_llm(messages, temperature=0.5, max_tokens=200, on_fallback=on_fallback)
 
@@ -184,37 +184,25 @@ class ReviewAgent:
         user_markers = extract_user_markers(persona)
 
         prompt = f"""
-        Write a product review in the user's authentic Nigerian voice.
-        
-        Product: {product.get('name')} | Category: {product.get('category')}
-        Description: {product.get('description', 'No description provided.')}
-        Price: ₦{price}
-        
-        User Persona:
-        - Archetype: {archetype}
-        - Tone: {persona.get('tone')}
-        - Nigerian Context: {persona.get('nigerian_context')}
-        - Budget: ₦{budget}
+Write a {rating_constraint}/5 review in {persona.get('tone')} Nigerian voice. 2-4 sentences.
 
-        USER'S ACTUAL PHRASES (found in their past reviews):
-        {user_markers}
+Product: {product.get('name')} | {product.get('category')}
+Description: {product.get('description', 'No description provided.')}
+Price: ₦{price} | Budget: ₦{budget}
 
-        MANDATORY: Use at least 2 of these EXACT phrases naturally in the review.
-        
-        {economic_constraint}
-        {rating_instruction}
-        
-        Plan: {plan}
-        
-        RATING FORMAT RULE:
-        Always write the rating using the exact decimal — e.g. "1.0/5" or "1.0 stars", NEVER "1/5" or "1 star".
-        If rating is 1.5, write "1.5/5". If 4.5, write "4.5/5". Match the exact float from the constraint above.
+Persona: {archetype} | Context: {persona.get('nigerian_context')}
 
-        Rules:
-        - NEVER hallucinate specs (RAM, battery, etc.) not explicitly listed in the description.
-        - Write 2-4 sentences.
-        - Output ONLY the review text.
-        """
+STYLE: Use 2+ of these phrases: {user_markers}
+
+CONSTRAINTS:
+{economic_constraint}
+{rating_instruction}
+
+RULES:
+- No specs not in description
+- Rate as X.0/5 (e.g. 4.5/5)
+- Output review only
+"""
         
         messages = [{"role": "user", "content": prompt}]
         max_retries = 2
@@ -240,16 +228,16 @@ class ReviewAgent:
             return ""
             
         prompt = f"""
-        Critique and refine this Nigerian review for authenticity:
-        "{draft}"
-        
-        Checklist:
-        - Does it sound human and culturally accurate?
-        - Did it follow the economic constraints (if any)?
-        - Is it free of hallucinated technical specs?
-        
-        Output ONLY the final revised review text. If the draft is already good, return it as is.
-        """
+Refine this review for authenticity:
+"{draft}"
+
+Verify:
+✓ Sounds human & culturally accurate
+✓ Follows economic constraints
+✓ No specs outside description
+
+Return revised text only. No meta-commentary.
+"""
         messages = [{"role": "user", "content": prompt}]
         
         response = await self._call_llm(messages, temperature=0.5, max_tokens=250, on_fallback=on_fallback)

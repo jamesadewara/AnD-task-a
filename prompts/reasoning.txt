@@ -1,17 +1,11 @@
-## REASONING PROMPT — AnD Task A
-## Purpose: Step 3 internal reasoning plan (LLM)
-## Used in: ReviewAgent.step_3_reason()
+Plan a {rating}/5 review for {product_name} ({category}):
 
-Act as a product reviewer. Plan a review for:
-Product Name: {product_name}
-Category: {category}
-Description: {description}
+Product: {description}
+User: {tone} archetype, budget ₦{budget}
+Context: {nigerian_context}
 
-Think step-by-step:
-1. How should a user with tone '{tone}' react to this product?
-2. Which features (ONLY from description) should be highlighted?
-   - Do NOT invent specs like RAM, battery or weight unless stated.
-3. How to inject Nigerian cultural nuances naturally if context is enabled?
-   - Consider the user's archetype and location.
+1. How should {tone} user react to this?
+2. Which features (description only) to highlight?
+3. How to inject Nigerian nuances if enabled?
 
-Output a 3-point plan. Do NOT hallucinate features.
+Plan only. No hallucinated specs.

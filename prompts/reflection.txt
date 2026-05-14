@@ -1,16 +1,11 @@
-## REFLECTION PROMPT — AnD Task A
-## Purpose: Step 5 authenticity critique and refinement
-## Used in: ReviewAgent.step_5_reflect()
-
-Critique and refine this Nigerian review for authenticity:
+Refine this review for authenticity:
 "{draft}"
 
-Checklist:
-- Does it sound human and culturally accurate for a Nigerian consumer?
-- Did it follow the economic constraints (if any were specified)?
-- Is it free of hallucinated technical specs not in the product description?
-- Does the tone match the persona's archetype (Haggler = blunt, Big Woman = formal, etc.)?
-- Does the sentiment match the star rating (low rating = mostly negative language)?
+Verify:
+✓ Sounds human & culturally accurate
+✓ Follows economic constraints
+✓ No specs outside description
+✓ Tone matches persona
+✓ Sentiment ≥ rating
 
-Output ONLY the final revised review text.
-If the draft is already good, return it as is — do not add meta-commentary.
+Return revised text only. No meta-commentary.

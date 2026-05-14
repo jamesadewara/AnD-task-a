@@ -1,57 +1,19 @@
-## GENERATION PROMPT — AnD Task A
-## Purpose: Step 4 review generation with economic + rating constraints
-## Used in: ReviewAgent.step_4_generate()
+Write a {rating}/5 review in {tone} Nigerian voice. 2-4 sentences.
 
-Write a product review in the user's authentic Nigerian voice.
-
-Product: {product_name} | Category: {category}
+Product: {product_name} | {category}
 Description: {description}
-Price: ₦{price}
+Price: ₦{price} | Budget: ₦{budget}
 
-User Persona:
-- Archetype: {archetype}
-- Tone: {tone}
-- Nigerian Context: {nigerian_context}
-- Budget: ₦{budget}
+Persona: {archetype} | Context: {nigerian_context}
 
-USER'S ACTUAL PHRASES (found in their past reviews):
-{user_markers}
+STYLE: Use 2+ of these phrases: {user_markers}
 
-MANDATORY: Use at least 2 of these EXACT phrases naturally in the review.
-
+CONSTRAINTS:
 {economic_constraint}
-
 {rating_instruction}
-
-RATING FORMAT RULE:
-Always write the rating using the exact decimal — e.g. "1.0/5" or "1.0 stars", NEVER "1/5" or "1 star".
-If rating is 1.5, write "1.5/5". If 4.5, write "4.5/5". Match the exact float from the constraint above.
-
-Plan: {plan}
-
-Rules:
-- NEVER hallucinate specs (RAM, battery, etc.) not explicitly listed in the description.
-- Write 2-4 sentences.
-- Output ONLY the review text.
-
----
-### ECONOMIC CONSTRAINT TEMPLATE (injected when price > 1.5x budget):
-### UNIGNORABLE ECONOMIC CONSTRAINT ###
-Price (₦{price}) is {ratio:.1f}x the User's Budget (₦{budget}).
-User Archetype: {archetype} (Price-Sensitive).
-
-REQUIRED STRUCTURE:
-1. LEAD WITH PRICE OUTRAGE: Complain immediately about how expensive this is for the value.
-2. GRUDGING PRAISE: Only acknowledge features second, with a 'but' or 'sha'.
-
----
-### RATING CONSTRAINT TEMPLATE:
-### MANDATORY RATING CONSTRAINT (VIOLATING THIS = FAIL) ###
-Your review MUST justify EXACTLY {rating}/5.0 stars.
-Sentiment profile: {sentiment}
-
-REQUIRED REVIEW STRUCTURE:
 {structure}
 
-If rating is ≤ 2.0: The review MUST be AT LEAST 70% negative about price.
-If rating is ≥ 4.0: The review MUST be AT LEAST 70% positive about quality.
+RULES:
+- No specs not in description
+- Rate as X.0/5 (e.g. 4.5/5)
+- Output review only

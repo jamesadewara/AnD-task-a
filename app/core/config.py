@@ -16,10 +16,19 @@ class Settings(BaseSettings):
             return v
         return ["http://localhost:3000"]
 
-    OPENROUTER_API_KEY: str = Field(
-        default="",
-        description="OpenRouter API Key"
+    OPENROUTER_API_KEYS: list[str] = Field(
+        ...,
+        description="Comma-separated list of OpenRouter API Keys"
     )
+
+    @field_validator("OPENROUTER_API_KEYS", mode="before")
+    @classmethod
+    def assemble_api_keys(cls, v: Any) -> list[str]:
+        if isinstance(v, str) and not v.startswith("["):
+            return [i.strip() for i in v.split(",")]
+        elif isinstance(v, list):
+            return v
+        return []
 
     LITELLM_MODEL_PRIMARY: str = "z-ai/glm-4.5-air:free"
     LITELLM_FALLBACK_MODELS: list[str] = [

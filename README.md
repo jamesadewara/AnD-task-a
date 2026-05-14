@@ -1,7 +1,7 @@
 # AnD Task A: User Modeling Agent
 
 This repository contains the stateless User Modeling Agent for the AnD Hackathon. It is designed to generate authentic, culturally-relevant product reviews based on user personas and product details.
-
+git clone https://github.com/jamesadewara/AnD-task-a.git
 ## 🚀 Features
 - **Stateless Architecture**: No database or session storage.
 - **OpenRouter SDK**: Native integration for high-performance agentic reasoning.
@@ -12,6 +12,8 @@ This repository contains the stateless User Modeling Agent for the AnD Hackathon
   3. **Reason**: Chain of Thought planning.
   4. **Generate**: Persona-aligned review drafting.
   5. **Reflect**: Authenticity critique and refinement.
+- **Probabilistic Rating Model**: Implements a "Price Shock" formula that simulates economic frustration for high-sensitivity archetypes (e.g., The Lagos Haggler).
+- **Nigerian Cultural Guarding**: Automatic injection of Pidgin markers based on user-specific history.
 
 ## 🛠️ Tech Stack
 - **FastAPI**: Lightweight API framework.
