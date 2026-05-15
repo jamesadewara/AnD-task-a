@@ -1,7 +1,6 @@
 ---
 sdk: docker
 app_port: 7860
-dockerfile: Dockerfile.hf
 ---
 
 # AnD Task A: User Modeling Agent

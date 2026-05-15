@@ -1,7 +1,9 @@
 
 services:
   task-a:
-    build: .
+    build: 
+      context:
+      dockerfile: Dockerfile.dev
     ports:
       - "8000:8000"
     env_file:

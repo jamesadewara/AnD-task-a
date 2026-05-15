@@ -1,7 +1,6 @@
 # --- Stage 1: Builder ---
 FROM python:3.11-slim-bookworm AS builder
 
-# Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PIP_NO_CACHE_DIR=1 \
@@ -9,12 +8,10 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 
-# Install build dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-# Create virtualenv and install dependencies
 RUN python -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
@@ -25,30 +22,22 @@ RUN pip install --upgrade pip && \
 # --- Stage 2: Runner ---
 FROM python:3.11-slim-bookworm AS runner
 
-# Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PATH="/opt/venv/bin:$PATH"
 
+# Required by HF Spaces
+RUN useradd -m -u 1000 user
+USER user
+
 WORKDIR /app
 
-# Install runtime dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    curl \
-    && rm -rf /var/lib/apt/lists/*
+COPY --chown=user --from=builder /opt/venv /opt/venv
+COPY --chown=user app/ ./app/
 
-# Copy virtualenv from builder
-COPY --from=builder /opt/venv /opt/venv
+EXPOSE 7860
 
-# Copy application code
-COPY app/ ./app/
-
-# Metadata
-EXPOSE 8000
-
-# Healthcheck
 HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
-    CMD curl -f http://localhost:8000/health || exit 1
+    CMD curl -f http://localhost:7860/health || exit 1
 
-# Start application
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "7860"]
