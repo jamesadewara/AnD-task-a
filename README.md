@@ -1,3 +1,9 @@
+---
+sdk: docker
+app_port: 7860
+dockerfile: Dockerfile.hf
+---
+
 # AnD Task A: User Modeling Agent
 
 This repository contains the stateless User Modeling Agent for the AnD Hackathon. It is designed to generate authentic, culturally-relevant product reviews based on user personas and product details.

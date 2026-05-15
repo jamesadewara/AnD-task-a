@@ -7,3 +7,4 @@ openrouter
 loguru
 tenacity
 filelock 
+slowapi

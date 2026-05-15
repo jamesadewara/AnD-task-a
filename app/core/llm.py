@@ -145,7 +145,7 @@ class LLMService:
             return await asyncio.wait_for(_do_call(), timeout=60.0)
         except asyncio.TimeoutError:
             logger.error(f"LLM Timeout for model {model}")
-            raise Exception(f"Timeout (20s) exceeded for {model}")
+            raise Exception(f"Timeout (60s) exceeded for {model}")
 
     async def get_completion(
         self,
@@ -223,7 +223,7 @@ class LLMService:
                                 max_tokens=max_tokens
                             )
 
-                    response = await asyncio.wait_for(_do_call(), timeout=25.0)
+                    response = await asyncio.wait_for(_do_call(), timeout=60.0)
                     self.key_manager.mark_success(key_index)
                     yield response.choices[0]
                     return # Success
