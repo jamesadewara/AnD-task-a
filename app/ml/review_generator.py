@@ -404,10 +404,14 @@ Return revised text only. No meta-commentary.
 
         final_review = final_review.strip().replace('"', '')
         
+        # Rating extraction for consistency
+        rating_extraction = extract_rating(final_review, sampled_rating)
+        actual_rating = rating_extraction["predicted_rating"] if rating_extraction["extractable"] else sampled_rating
+        
         # Final Result
         final_result = {
             "review_text": final_review,
-            "predicted_rating": sampled_rating,
+            "predicted_rating": actual_rating,
             "used_nigerian_markers": detected,
             "sentence_count": len([s for s in re.split(r'(?<!\d)[.!?]+(?!\d)', final_review) if s.strip()])
         }
@@ -549,9 +553,12 @@ Return revised text only. No meta-commentary.
         # Clean up context
         reasoning_ctx.reset(token)
         
+        # Extract actual rating if present in the text, otherwise fallback to sampled rating
+        actual_rating = rating_extraction["predicted_rating"] if rating_extraction["extractable"] else sampled_rating
+        
         return {
             "review_text": final_review,
-            "predicted_rating": sampled_rating,
+            "predicted_rating": actual_rating,
             "reasoning_chain": reasoning_chain,
             "used_nigerian_markers": detected,
             "sentence_count": len([s for s in re.split(r'(?<!\d)[.!?]+(?!\d)', final_review) if s.strip()]),
