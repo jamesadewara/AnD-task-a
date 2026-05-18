@@ -37,10 +37,9 @@ Then edit `.env`:
 OPENROUTER_API_KEY=your_key_here
 ```
 
-### 2. Run with Docker
+### 2. Run with Docker Compose
 ```bash
-docker build -t and-task-a .
-docker run -p 8000:8000 --env-file .env and-task-a
+sudo docker compose up -d --build
 ```
 
 ### 3. API Usage

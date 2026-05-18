@@ -16,9 +16,9 @@ stateless persona-driven review generation with probabilistic rating and Nigeria
 git clone <repo-url>
 cd AnD-task-a
 cp .env.example .env          # add your OPENROUTER_API_KEY
-docker-compose up --build -d
+sudo docker compose up -d --build
 sleep 10
-curl http://localhost:8000/health
+curl http://127.0.0.1:8000/api/v1/health
 ```
 
 ---
@@ -26,7 +26,7 @@ curl http://localhost:8000/health
 ## Health Check
 
 ```bash
-curl http://localhost:8000/health
+curl http://127.0.0.1:8000/api/v1/health
 ```
 
 Expected:

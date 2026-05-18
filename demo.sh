@@ -10,8 +10,8 @@ echo "=========================================="
 
 # 1. Start services
 echo ""
-echo "[1/4] Starting docker-compose..."
-docker-compose up --build -d
+echo "[1/4] Starting docker compose..."
+sudo docker compose up -d --build
 
 # 2. Wait for startup
 echo "[2/4] Waiting 10s for service to be ready..."
@@ -19,14 +19,14 @@ sleep 10
 
 # 3. Health check
 echo "[3/4] Health check..."
-HEALTH=$(curl -s http://localhost:8000/health)
+HEALTH=$(curl -s http://127.0.0.1:8000/api/v1/health)
 echo "Health: $HEALTH"
 
 if echo "$HEALTH" | grep -q "healthy"; then
   echo "  ✓ Service is healthy"
 else
   echo "  ✗ Health check FAILED"
-  docker-compose logs task-a
+  sudo docker compose logs task-a
   exit 1
 fi
 
