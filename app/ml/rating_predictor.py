@@ -151,6 +151,25 @@ class RatingPredictor:
         """Accept flexible payload and predict rating from review text."""
         from app.core.config import settings
         
+        # 1. Try to extract rating directly from review_text using regex first
+        if review_text:
+            text_lower = review_text.lower()
+            patterns = [
+                r'\b([1-5](?:\.\d)?)\s*(?:\/|out of)\s*5',
+                r'\b([1-5](?:\.\d)?)\s*stars?\b',
+                r'rating[:\s]+([1-5](?:\.\d)?)',
+            ]
+            for pattern in patterns:
+                match = re.search(pattern, text_lower)
+                if match:
+                    try:
+                        extracted = float(match.group(1))
+                        if 1.0 <= extracted <= 5.0:
+                            logger.info(f"[RatingPredictor] Extracted rating {extracted} directly from review text.")
+                            return extracted
+                    except (ValueError, IndexError):
+                        continue
+        
         persona = payload.get("user_persona", {}) if isinstance(payload, dict) else {}
         product = payload.get("product", {}) if isinstance(payload, dict) else {}
         
@@ -160,6 +179,7 @@ class RatingPredictor:
         if not isinstance(product, dict):
             product = {}
         
+        persona.setdefault("name", "User") # Crucial: aligns seed with ReviewAgent!
         persona.setdefault("archetype", "default_consumer")
         persona.setdefault("budget", settings.DEFAULT_USER_BUDGET)
         persona.setdefault("price_sensitivity", "medium")
@@ -168,6 +188,6 @@ class RatingPredictor:
         product.setdefault("description", str(payload))
         product.setdefault("name", "Product")
         
-        # Use probabilistic model
+        # Use probabilistic model as fallback
         res = self.predict_probabilistic(persona, product)
         return res["rating"]
